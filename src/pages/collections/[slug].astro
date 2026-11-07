@@ -1,0 +1,86 @@
+---
+/** 专题详情:有序路线 + 每张的推荐语 */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import AlbumCard from '../../components/AlbumCard.astro';
+import { must } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const collections = await getCollection('collections');
+  return collections.map((c) => ({ params: { slug: c.id }, props: { collection: c } }));
+}
+
+const { collection } = Astro.props;
+const items = await Promise.all(
+  collection.data.items.map(async (it: any) => ({ note: it.note, album: await must('albums', it.album) })),
+);
+const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+---
+
+<Base title={`${collection.data.title} — 聆听经典`} description={collection.data.subtitle ?? ''}>
+  <div style="margin-top:52px">
+    <span class="eyebrow">专题 · Feature</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">{collection.data.title}</h1>
+    {collection.data.subtitle && <p class="sub">{collection.data.subtitle}</p>}
+
+    <div class="prose" style="margin-top:18px">
+      {paras(collection.data.intro).map((p) => <p>{p}</p>)}
+    </div>
+
+    <ol class="route">
+      {items.map(({ album, note }, i) => (
+        <li class="route-item">
+          <div class="rn">{String(i + 1).padStart(2, '0')}</div>
+          <div class="rcard">
+            <AlbumCard album={album} />
+            {note && <p class="rnote">{note}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+
+<style>
+  .sub {
+    color: var(--muted);
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .route {
+    list-style: none;
+    margin-top: 40px;
+    display: grid;
+    gap: 34px;
+  }
+  .route-item {
+    display: grid;
+    grid-template-columns: 56px 300px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .rn {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .rcard {
+    max-width: 300px;
+  }
+  .rnote {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 860px) {
+    .route-item {
+      grid-template-columns: 44px 1fr;
+    }
+    .rcard {
+      max-width: 260px;
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+title: 贝多芬:悲怆·月光·热情(钢琴奏鸣曲)
+title_en: "Beethoven: Piano Sonatas \"Pathétique\" \"Moonlight\" \"Appassionata\""
+label: Deutsche Grammophon
+release_year: 1965
+recordings:
+  - beethoven-sonata-pathetique-kempff-1965
+  - beethoven-sonata-moonlight-kempff-1965
+  - beethoven-sonata-appassionata-kempff-1965
+rating: 9.1
+essence: 三首最受欢迎的贝多芬奏鸣曲,一次从容不迫的德奥式讲述。
+tags: [钢琴作品, 德奥传统]
+background: |
+  肯普夫 1964–65 年立体声贝多芬奏鸣曲全集(他的第二次全集)中的三首最受欢迎之作。
+  肯普夫是二十世纪贝多芬钢琴传统的重要一环:不求音量与戏剧的极限,而以歌唱的句法、
+  透明的织体与深呼吸般的结构感取胜。这张合集长久以来是入门贝多芬钢琴作品的稳妥选择。
+editorial: |
+  「月光」第一乐章几乎是全世界被弹得最多、也最容易被弹坏的五分钟。肯普夫的可贵在于「不做什么」:
+  不渲染神秘、不加深阴影,旋律自然浮现,像月光不加选择地照在所有东西上。三个乐章连听,
+  注意第一与第三乐章共用同一组三连音基因——从水底到浪尖,是同一场心事的两次曝光。
+  「悲怆」慢乐章的歌唱与「热情」末乐章的克制推进,同样是「让音乐自己说话」的教科书。
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Kempff%20Beethoven%20Pathetique%20Moonlight
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Kempff%20Beethoven%20Sonata&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Kempff%20Beethoven%20Sonata
+    verified: false

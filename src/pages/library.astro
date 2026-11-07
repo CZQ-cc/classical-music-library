@@ -1,0 +1,99 @@
+---
+/** 唱片馆:全部唱片 + 作曲家筛选(客户端轻量过滤) */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import AlbumCard from '../components/AlbumCard.astro';
+import { must } from '../utils/data';
+
+const albums = (await getCollection('albums')).sort((a, b) => b.data.rating - a.data.rating);
+const composers = await getCollection('composers');
+
+// 每张专辑 → 涉及的作曲家 slug 集合(通过 作品 关联)
+const albumComposers = new Map<string, string[]>();
+for (const al of albums) {
+  const set = new Set<string>();
+  for (const recSlug of al.data.recordings) {
+    const rec = await must('recordings', recSlug);
+    for (const w of rec.data.works) {
+      const work = await must('works', w);
+      set.add(work.data.composer);
+    }
+  }
+  albumComposers.set(al.id, [...set]);
+}
+---
+
+<Base title="唱片馆 — 聆听经典" description="精选古典音乐唱片收藏:按作曲家浏览,附推荐指数与串流入口。">
+  <div style="margin-top:52px">
+    <span class="eyebrow">The Library</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">唱片馆</h1>
+    <p style="color:var(--ink-soft);max-width:640px;margin-top:12px">
+      每一张都经过筛选与撰写导读。共 {albums.length} 张,持续扩充中。
+    </p>
+
+    <div class="filter-row" id="filter-row">
+      <button class="f-btn is-active" data-f="">全部</button>
+      {composers.map((c) => <button class="f-btn" data-f={c.id}>{c.data.name}</button>)}
+    </div>
+
+    <div class="card-grid" id="grid">
+      {albums.map((al) => (
+        <div class="grid-item" data-c={(albumComposers.get(al.id) ?? []).join(' ')}>
+          <AlbumCard album={al} />
+        </div>
+      ))}
+    )}
+    <p id="empty-tip" hidden style="color:var(--muted)">该作曲家名下暂无唱片。</p>
+  </div>
+</Base>
+
+<style>
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+  }
+  .f-btn {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .f-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .f-btn.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+</style>
+
+<script>
+  // 轻量客户端筛选:按作曲家 slug 过滤卡片
+  const row = document.getElementById('filter-row');
+  const items = document.querySelectorAll<HTMLElement>('.grid-item');
+  const tip = document.getElementById('empty-tip');
+  row?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.f-btn');
+    if (!btn) return;
+    row.querySelectorAll('.f-btn').forEach((b) => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const f = btn.dataset.f ?? '';
+    let visible = 0;
+    items.forEach((it) => {
+      const show = !f || (it.dataset.c ?? '').split(' ').includes(f);
+      it.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (tip) tip.hidden = visible > 0;
+  });
+</script>

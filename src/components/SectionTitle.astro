@@ -1,0 +1,14 @@
+---
+/** 分节标题:细线 + 中文衬线 + 英文小字 */
+interface Props {
+  zh: string;
+  en: string;
+}
+
+const { zh, en } = Astro.props;
+---
+
+<div class="rule-title">
+  <span class="rt-zh">{zh}</span>
+  <span class="rt-en">{en}</span>
+</div>

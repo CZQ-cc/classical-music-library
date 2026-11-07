@@ -1,0 +1,32 @@
+---
+/**
+ * 封面:有真实封面图用图,否则用 LP 封套式版式占位(厂牌色带)
+ */
+import { labelClass } from '../utils/data';
+
+interface Props {
+  cover?: string;
+  label: string;
+  title: string;
+  artist: string;
+}
+
+const { cover, label, title, artist } = Astro.props;
+---
+
+{
+  cover ? (
+    <img class="cover" src={cover} alt={`${title} 唱片封面`} loading="lazy" />
+  ) : (
+    <div class={`cover-ph ${labelClass(label)}`} role="img" aria-label={`${title} 封面占位`}>
+      <span class="cover-label">{label}</span>
+      <div>
+        <div class="cover-title">{title}</div>
+        <div class="cover-artist" style="margin-top:10px">
+          {artist}
+        </div>
+        <div class="cover-band"></div>
+      </div>
+    </div>
+  )
+}

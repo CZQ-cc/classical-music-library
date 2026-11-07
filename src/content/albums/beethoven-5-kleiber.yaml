@@ -1,0 +1,31 @@
+title: 贝多芬:第五&第七交响曲
+title_en: "Beethoven: Symphonies Nos. 5 & 7"
+label: Deutsche Grammophon
+release_year: 1976
+recordings:
+  - beethoven-sym-5-kleiber-1975
+  - beethoven-sym-7-kleiber-1976
+rating: 9.8
+essence: 若只允许保留一张贝多芬唱片,无数乐迷会默默把它递出来。
+featured: true
+tags: [交响曲, 德奥传统, 传奇名盘]
+background: |
+  1975 年录第五、1976 年录第七,维也纳爱乐, DG——三个元素凑齐,就是唱片史上最著名的化学反应之一。
+  卡洛斯·克莱伯一生发行的录音室录音屈指可数,这张是他第一次让全世界意识到:有一种指挥,
+  能把排练千遍的曲目弹出首演之夜的电流。它常年占据各类「史上最伟大古典唱片」榜单前列,
+  是《企鹅唱片指南》最高荣誉「三带花」(Rosette)的常驻得主,也被《留声机》评为第七交响曲伟大录音的稀有样本。
+editorial: |
+  这张唱片适合作为古典入门的第一张交响曲唱片——不是因为「最好懂」,而是因为它让你在最短时间内听见
+  「演绎」这件事的全部含义:同一个贝多芬,节奏可以这样呼吸、重音可以这样落点、乐队可以这样燃烧。
+  听的时候不必正襟危坐,挑第三乐章结尾那段著名的渐强直接开始——如果你在 C 大调爆发的瞬间没有起鸡皮疙瘩,
+  请再听一遍,那一定是环境的问题,不是你的问题。
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Carlos%20Kleiber%20Beethoven%205%207
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Carlos%20Kleiber%20Beethoven%205%207&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Carlos%20Kleiber%20Beethoven%205%207
+    verified: false

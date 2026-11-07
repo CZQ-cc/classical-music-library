@@ -1,0 +1,28 @@
+title: 从这十张开始:古典音乐入门路线
+subtitle: 十张唱片,六位作曲家,一条走得通的入门之路
+intro: |
+  「古典音乐」不是一片需要毕业的学海,而是一座随时可以推门的老房子。
+  这十张唱片按「听得进 → 听得懂 → 听上瘾」排列:先从旋律与歌唱入手,
+  再进入交响曲的戏剧,最后用两种对同一部作品的诠释,亲手推开「版本比较」的大门。
+  每张都附编辑导读与聆听指南,照着听即可,不需要任何乐理基础。
+items:
+  - album: chopin-nocturnes-rubinstein
+    note: 第一站:最容易爱上钢琴的入口。旋律如歌,夜里听,音量不必大。
+  - album: dvorak-cello-rostropovich
+    note: 第二站:大提琴像人声一样歌唱,协奏曲的戏剧从这里开始。
+  - album: beethoven-sonatas-kempff
+    note: 第三站:独自一人的贝多芬——「月光」的静与「热情」的火。
+  - album: mozart-40-41-bohm
+    note: 第四站:古典主义的优雅与它藏在暗处的焦虑,一晚听两部。
+  - album: tchaikovsky-4-6-mravinsky
+    note: 第五站:第一次被交响乐队吓到——钢铁纪律下的眼泪最重。
+  - album: bach-goldberg-gould-1955
+    note: 第六站:巴赫的机智与活力,年轻人的《哥德堡》。
+  - album: bach-goldberg-gould-1981
+    note: 第七站:同一部作品的告别版本——第一次做「版本比较」。
+  - album: beethoven-5-karajan-1963
+    note: 第八站:豪华版「命运」,先记住大理石宫殿的样子。
+  - album: beethoven-5-gardiner
+    note: 第九站:古乐器版「命运」,同一个作品换一副面孔。
+  - album: beethoven-5-kleiber
+    note: 终点站:传奇中的传奇。走到这里,你已经准备好进入古典音乐的深水区。

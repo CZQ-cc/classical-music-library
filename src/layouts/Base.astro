@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '聆听经典 · The Art of Listening — 古典音乐鉴赏与唱片指南',
+  description = '以经典录音为核心的古典音乐数字图书馆:作品导读、录音版本比较、专业乐评与聆听指南。',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/">
+          <span class="brand-zh">聆听经典</span>
+          <span class="brand-en">The Art of Listening</span>
+        </a>
+        <nav class="site-nav">
+          <a href="/library">唱片馆</a>
+          <a href="/composers">作曲家</a>
+          <a href="/collections">专题</a>
+          <a href="/about">关于</a>
+          <a href="/search">搜索</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>聆听经典 · The Art of Listening — 古典音乐鉴赏与唱片指南</p>
+        <p>
+          本站不存储任何商业录音音频;乐评版权归原媒体与作者所有,本站仅作来源标注与摘要导流;唱片封面仅用于非商业推介。
+          了解<a href="/about">版权与内容说明</a>。
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

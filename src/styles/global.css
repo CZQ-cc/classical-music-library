@@ -1,0 +1,553 @@
+/* ============================================================
+   聆听经典 · The Art of Listening
+   高端音乐杂志设计系统:米白纸张、墨黑正文、金色点缀、衬线标题
+   不外链任何 Web 字体(大陆访问),全部使用系统字体栈
+   ============================================================ */
+
+:root {
+  /* 色彩 */
+  --paper: #f6f3ec; /* 纸张米白 */
+  --card: #fffdf8; /* 卡片底 */
+  --ink: #1d1a15; /* 墨黑 */
+  --ink-soft: #46413a; /* 次级文字 */
+  --muted: #8a8478; /* 弱化文字 */
+  --line: #ddd5c2; /* 分隔线 */
+  --gold: #9a7b3f; /* 金色点缀 */
+  --gold-soft: #c2a878;
+  --shadow: 0 1px 2px rgba(40, 32, 12, 0.05), 0 10px 30px rgba(60, 50, 20, 0.08);
+
+  /* 字体 */
+  --serif: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif CN',
+    'STZhongsong', 'SimSun', serif;
+  --sans: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei',
+    'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+  /* 纸张质感:极淡的纹理方向渐变 */
+  background-image: linear-gradient(180deg, rgba(255, 253, 248, 0.6), rgba(246, 243, 236, 0));
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-soft);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- 页眉 ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(246, 243, 236, 0.92);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  gap: 16px;
+}
+
+.brand {
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-zh {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.35em; /* 「聆听经典」拉开字距,刊名感 */
+}
+
+.brand-en {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  border-bottom: none;
+  font-size: 15px;
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+  padding-bottom: 2px;
+}
+
+.site-nav a:hover {
+  color: var(--gold);
+}
+
+/* ---------- 英文眉题 / 小标签 ---------- */
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-family: var(--sans);
+}
+
+/* 分节标题:细线 + 中文衬线 + 英文小字 */
+.rule-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 56px 0 24px;
+}
+
+.rule-title::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--line);
+  transform: translateY(-6px);
+}
+
+.rule-title .rt-zh {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.rule-title .rt-en {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- 封面(真实封面 / 版式占位) ---------- */
+
+.cover {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* 版式占位封面:LP 唱片封套式内框 + 厂牌色带 */
+.cover-ph {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(160deg, #fbf9f2 0%, #efe9d8 100%);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  position: relative;
+}
+
+.cover-ph::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(29, 26, 21, 0.16);
+  pointer-events: none;
+}
+
+.cover-ph .cover-label {
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.cover-ph .cover-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 4.5cqw, 26px);
+  font-weight: 700;
+  line-height: 1.4;
+  container-type: inline-size;
+}
+
+.cover-ph .cover-artist {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cover-ph .cover-band {
+  height: 4px;
+  background: var(--band, var(--gold));
+  margin-top: 10px;
+}
+
+/* 厂牌色带 */
+.label-dg { --band: #d4a017; }
+.label-archiv { --band: #0f6e4f; }
+.label-columbia { --band: #b5122b; }
+.label-cbs { --band: #232323; }
+.label-rca { --band: #0a3d91; }
+.label-sony { --band: #161616; }
+
+/* ---------- 唱片卡片 ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px 22px;
+}
+
+.album-card {
+  border-bottom: none;
+  display: block;
+}
+
+.album-card .cover,
+.album-card .cover-ph {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.album-card:hover .cover,
+.album-card:hover .cover-ph {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgba(40, 32, 12, 0.06), 0 16px 40px rgba(60, 50, 20, 0.14);
+}
+
+.album-card .ac-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.album-card .ac-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+.album-card .ac-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.album-card .ac-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* 推荐指数:金色星 */
+.stars {
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.stars .off {
+  color: var(--line);
+}
+
+/* ---------- 长文排版 ---------- */
+
+.prose {
+  max-width: 720px;
+}
+
+.prose p {
+  margin-bottom: 1.1em;
+  color: var(--ink-soft);
+  text-align: justify;
+}
+
+.prose strong {
+  color: var(--ink);
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+/* 引文块(乐评) */
+blockquote.pull-quote {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.9;
+  border-left: 3px solid var(--gold);
+  padding: 6px 0 6px 20px;
+  margin: 20px 0;
+  color: var(--ink);
+}
+
+blockquote.pull-quote cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ---------- 串流按钮 ---------- */
+
+.streaming-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ink);
+  padding: 9px 18px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  transition: all 0.15s ease;
+  background: transparent;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.btn .platform-en {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.btn.ghost {
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+
+.btn.ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+
+.link-status {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ---------- 表格(版本对比等) ---------- */
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.compare-table th {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--ink);
+  white-space: nowrap;
+}
+
+.compare-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  vertical-align: top;
+}
+
+.compare-table td a {
+  font-family: var(--serif);
+  font-weight: 700;
+}
+
+/* ---------- 时间轴(聆听指南) ---------- */
+
+.guide-movement {
+  margin-bottom: 36px;
+}
+
+.guide-movement h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.guide-row:last-child {
+  border-bottom: none;
+}
+
+.guide-cue {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.guide-note {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.guide-note .gt {
+  font-weight: 600;
+  color: var(--ink);
+  margin-right: 6px;
+}
+
+/* ---------- 页脚 ---------- */
+
+.site-footer {
+  margin-top: 96px;
+  border-top: 1px solid var(--line);
+  padding: 36px 0 48px;
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.site-footer a {
+  color: var(--muted);
+  border-bottom-color: var(--line);
+}
+
+/* ---------- 面包屑 / 元信息行 ---------- */
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.meta-row .k {
+  letter-spacing: 0.1em;
+}
+
+.meta-row .v {
+  color: var(--ink-soft);
+}
+
+.chip {
+  display: inline-block;
+  border: 1px solid var(--line);
+  padding: 2px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 响应式 ---------- */
+
+@media (max-width: 720px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .brand-zh {
+    letter-spacing: 0.28em;
+    font-size: 21px;
+  }
+
+  .rule-title {
+    margin: 40px 0 18px;
+  }
+
+  .rule-title .rt-zh {
+    font-size: 21px;
+  }
+
+  .compare-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,112 @@
+---
+/** 作曲家详情页:生平 + 代表作品 + 推荐唱片 */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import AlbumCard from '../../components/AlbumCard.astro';
+import { must, recordingsOfWork, PERIOD_NAMES } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const composers = await getCollection('composers');
+  return composers.map((c) => ({ params: { slug: c.id }, props: { composer: c } }));
+}
+
+const { composer } = Astro.props;
+
+const works = (await getCollection('works'))
+  .filter((w) => w.data.composer === composer.id)
+  .sort((a, b) => a.data.composed_year.localeCompare(b.data.composed_year));
+
+// 推荐唱片:含该作曲家作品录音的专辑
+const albums = await getCollection('albums');
+const relevant = new Set<string>();
+for (const w of works) {
+  for (const rec of await recordingsOfWork(w.id)) {
+    for (const al of albums.filter((a) => a.data.recordings.includes(rec.id))) relevant.add(al.id);
+  }
+}
+const recommended = albums.filter((a) => relevant.has(a.id)).sort((a, b) => b.data.rating - a.data.rating);
+const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+---
+
+<Base title={`${composer.data.name} — 聆听经典`} description={composer.data.intro.slice(0, 100)}>
+  <article style="margin-top:52px">
+    <span class="eyebrow">{PERIOD_NAMES[composer.data.period]} · {composer.data.birth}–{composer.data.death ?? ''}</span>
+    <div class="c-head">
+      <span class="mono">{composer.data.monogram}</span>
+      <div>
+        <h1 style="font-size:clamp(28px,4vw,40px)">{composer.data.name}</h1>
+        <p class="title-en">{composer.data.name_en}</p>
+      </div>
+    </div>
+
+    <SectionTitle zh="生平" en="Biography" />
+    <div class="prose">
+      {paras(composer.data.intro).map((p) => <p>{p}</p>)}
+    </div>
+
+    {works.length > 0 && (
+      <>
+        <SectionTitle zh="本馆收录作品" en="Works in Collection" />
+        <ol class="work-list">
+          {works.map((w) => (
+            <li>
+              <a href={`/works/${w.id}/`}>{w.data.title}</a>
+              <span class="w-meta">{w.data.genre}{w.data.catalog_no ? ` · ${w.data.catalog_no}` : ''} · {w.data.composed_year}</span>
+            </li>
+          ))}
+        </ol>
+      </>
+    )}
+
+    {recommended.length > 0 && (
+      <>
+        <SectionTitle zh="推荐唱片" en="Recommended Recordings" />
+        <div class="card-grid">
+          {recommended.map((al) => <AlbumCard album={al} />)}
+        </div>
+      </>
+    )}
+  </article>
+</Base>
+
+<style>
+  .c-head {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+  .mono {
+    font-family: var(--serif);
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .title-en {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .work-list {
+    list-style: none;
+    max-width: 720px;
+  }
+  .work-list li {
+    padding: 13px 0;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .work-list a {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 16.5px;
+  }
+  .w-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>

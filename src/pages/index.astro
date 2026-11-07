@@ -1,0 +1,222 @@
+---
+/** 首页:杂志式 —— 本周唱片大图 + 编辑精选 + 入门路线 + 作曲家速览 */
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import AlbumCard from '../components/AlbumCard.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import Stars from '../components/Stars.astro';
+import { lineupOfRecording, must } from '../utils/data';
+
+const albums = (await getCollection('albums')).sort((a, b) => b.data.rating - a.data.rating);
+const featured = albums.filter((a) => a.data.featured);
+const hero = featured[0] ?? albums[0];
+const rest = featured.filter((a) => a.id !== hero.id);
+
+const heroRec = await must('recordings', hero.data.recordings[0]);
+const heroLineup = await lineupOfRecording(heroRec);
+
+const collection = (await getCollection('collections'))[0];
+const collectionItems = collection
+  ? await Promise.all(
+      collection.data.items.slice(0, 5).map(async (it: any) => ({
+        note: it.note,
+        album: await must('albums', it.album),
+      })),
+    )
+  : [];
+
+const composers = await getCollection('composers');
+---
+
+<Base>
+  <!-- 开场导语 -->
+  <section class="opening">
+    <p class="brand-line">CLASSICAL MUSIC · GREAT RECORDINGS</p>
+    <h1>聆听经典<span class="dot">·</span>感受永恒</h1>
+    <p class="opening-text">
+      一座以经典录音为核心的古典音乐数字图书馆:<strong>作品</strong>、<strong>录音版本</strong>与<strong>唱片</strong>
+      三层分明;专业乐评有出处,聆听指南有坐标,每一次点击都能抵达音乐本身。
+    </p>
+  </section>
+
+  <!-- 本周唱片 -->
+  <section class="hero-sec">
+    <span class="eyebrow">本周唱片 · Record of the Week</span>
+    <div class="hero-grid">
+      <a class="hero-cover-link" href={`/albums/${hero.id}/`}>
+        <Cover cover={hero.data.cover} label={hero.data.label} title={hero.data.title} artist={heroLineup} />
+      </a>
+      <div class="hero-body">
+        <p class="hero-label">{hero.data.label} · {hero.data.release_year}</p>
+        <h2><a href={`/albums/${hero.id}/`}>{hero.data.title}</a></h2>
+        <p class="hero-lineup">{heroLineup}</p>
+        <p class="lede">{hero.data.essence}</p>
+        <div style="margin:18px 0 26px"><Stars rating={hero.data.rating} /></div>
+        <a class="btn" href={`/albums/${hero.id}/`}>阅读本碟导读 <span class="platform-en">Read</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 编辑精选 -->
+  <SectionTitle zh="编辑精选" en="Editor's Choice" />
+  <div class="card-grid">
+    {rest.map((al) => <AlbumCard album={al} />)}
+  </div>
+
+  <!-- 入门路线 -->
+  {collection && (
+    <>
+      <SectionTitle zh="从这里开始" en="Getting Started" />
+      <div class="start-sec">
+        <p style="max-width:680px;color:var(--ink-soft);margin-bottom:26px">{collection.data.intro.split(/\n\s*\n/)[0]}</p>
+        <ol class="start-list">
+          {collectionItems.map(({ album, note }, i) => (
+            <li>
+              <span class="sn">{String(i + 1).padStart(2, '0')}</span>
+              <a class="st" href={`/albums/${album.id}/`}>{album.data.title}</a>
+              <span class="snote">{note}</span>
+            </li>
+          ))}
+        </ol>
+        <a class="btn ghost" href={`/collections/${collection.id}/`}>查看完整路线 <span class="platform-en">All 10</span></a>
+      </div>
+    </>
+  )}
+
+  <!-- 作曲家速览 -->
+  <SectionTitle zh="作曲家" en="Composers" />
+  <div class="composer-row">
+    {composers.map((c) => (
+      <a class="cr-item" href={`/composers/${c.id}/`}>
+        <span class="mono">{c.data.monogram}</span>
+        <span>{c.data.name}</span>
+      </a>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .opening {
+    text-align: center;
+    padding: 72px 0 10px;
+  }
+  .brand-line {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .opening h1 {
+    font-size: clamp(30px, 5.4vw, 52px);
+    letter-spacing: 0.12em;
+  }
+  .opening h1 .dot {
+    color: var(--gold);
+    margin: 0 6px;
+  }
+  .opening-text {
+    max-width: 620px;
+    margin: 22px auto 0;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+  .hero-sec {
+    margin-top: 54px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 400px) 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .hero-cover-link {
+    border-bottom: none;
+    display: block;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-body h2 {
+    font-size: clamp(24px, 3.4vw, 36px);
+    margin: 10px 0 6px;
+  }
+  .hero-body h2 a {
+    border-bottom: none;
+  }
+  .hero-lineup {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .start-sec {
+    max-width: 760px;
+  }
+  .start-list {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .start-list li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    column-gap: 6px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .sn {
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .st {
+    font-family: var(--serif);
+    font-weight: 700;
+  }
+  .snote {
+    grid-column: 2;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .composer-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .cr-item {
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+    transition: border-color 0.15s ease;
+  }
+  .cr-item:hover {
+    border-color: var(--gold);
+  }
+  .mono {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+    .hero-cover-link {
+      max-width: 340px;
+    }
+  }
+</style>

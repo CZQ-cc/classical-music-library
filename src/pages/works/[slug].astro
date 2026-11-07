@@ -1,0 +1,149 @@
+---
+/**
+ * 作品页:作品百科(背景/为何经典/乐章)+ 该作品全部录音版本对比
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Stars from '../../components/Stars.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import { must, recordingsOfWork, albumsOfRecording, lineupOfRecording, PERIOD_NAMES } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  return works.map((work) => ({ params: { slug: work.id }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const composer = await must('composers', work.data.composer);
+
+// 全部录音版本 → 专辑(用于对比表)
+const recs = await recordingsOfWork(work.id);
+const rows = await Promise.all(
+  recs.map(async (rec) => {
+    const albums = await albumsOfRecording(rec.id);
+    return {
+      rec,
+      lineup: await lineupOfRecording(rec),
+      albums,
+      hasGuide: rec.data.guide.length > 0,
+    };
+  }),
+);
+// 推荐指数排序(取其最高专辑分)
+rows.sort(
+  (a, b) =>
+    Math.max(...b.albums.map((x) => x.data.rating)) - Math.max(...a.albums.map((x) => x.data.rating)),
+);
+
+const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+const catalogLabel = work.data.catalog_no ? ` · ${work.data.catalog_no}` : '';
+---
+
+<Base title={`${work.data.title} — ${composer.data.name} — 聆听经典`} description={work.data.why_classic.slice(0, 100)}>
+  <article style="margin-top:52px">
+    <span class="eyebrow">
+      <a href={`/composers/${composer.id}/`}>{composer.data.name}</a>
+      · {work.data.genre}
+      {catalogLabel}
+      · {PERIOD_NAMES[composer.data.period]}
+    </span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">{work.data.title}</h1>
+    <p class="title-en">{work.data.title_en}</p>
+
+    <SectionTitle zh="创作背景" en="Background" />
+    <div class="prose">
+      {paras(work.data.background).map((p) => <p>{p}</p>)}
+    </div>
+
+    <SectionTitle zh="为什么经典" en="Why It Matters" />
+    <div class="prose">
+      {paras(work.data.why_classic).map((p) => <p>{p}</p>)}
+    </div>
+
+    {work.data.movements.length > 0 && (
+      <>
+        <SectionTitle zh="乐章结构" en="Movements" />
+        <ol class="movement-list">
+          {work.data.movements.map((m, i) => (
+            <li>
+              <span class="mv-no">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <div class="mv-title">{m.title}</div>
+                {m.note && <div class="mv-note">{m.note}</div>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </>
+    )}
+
+    <SectionTitle zh="录音版本比较" en="Compare Recordings" />
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px">
+      一部作品,多种演绎。以下按推荐指数排序;点击专辑名查看完整介绍与聆听指南。
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>#</th><th>演绎</th><th>录音年份</th><th>风格</th><th>收录专辑</th></tr>
+      </thead>
+      <tbody>
+        {rows.map((row, i) => (
+          <tr>
+            <td>{String(i + 1).padStart(2, '0')}</td>
+            <td>{row.lineup}</td>
+            <td>{row.rec.data.recording_year}</td>
+            <td>{row.rec.data.style_tags.slice(0, 2).join(' / ')}</td>
+            <td>
+              {row.albums.map((al) => (
+                <div style="margin-bottom:6px">
+                  <a href={`/albums/${al.id}/`}>{al.data.title}</a>
+                  {row.hasGuide && <span class="guide-flag">含聆听指南</span>}
+                  <Stars rating={al.data.rating} />
+                </div>
+              ))}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </article>
+</Base>
+
+<style>
+  .title-en {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .movement-list {
+    list-style: none;
+    max-width: 720px;
+  }
+  .movement-list li {
+    display: flex;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .mv-no {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .mv-title {
+    font-weight: 600;
+  }
+  .mv-note {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .guide-flag {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--gold);
+    border: 1px solid var(--gold-soft);
+    padding: 0 8px;
+    border-radius: 999px;
+    margin-left: 10px;
+  }
+</style>

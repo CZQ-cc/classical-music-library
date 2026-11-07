@@ -1,0 +1,307 @@
+---
+/**
+ * 唱片详情页:封面信息 → 串流入口 → 专辑背景 → 专家观点/编辑导读双栏 →
+ * 曲目与录音 → 聆听指南(时间轴绑定具体录音)→ 同作品版本对比
+ */
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Cover from '../../components/Cover.astro';
+import Stars from '../../components/Stars.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import StreamingButtons from '../../components/StreamingButtons.astro';
+import { must, recordingDetail, recordingsOfWork, albumsOfRecording, lineupOfRecording } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const albums = await getCollection('albums');
+  return albums.map((album) => ({ params: { slug: album.id }, props: { album } }));
+}
+
+const { album } = Astro.props;
+
+// 解析关联录音(完整性断言:死引用直接构建失败)
+const recs = await Promise.all(album.data.recordings.map((slug) => must('recordings', slug)));
+const recDetails = await Promise.all(recs.map((r) => recordingDetail(r)));
+const lineups = await Promise.all(recs.map((r) => lineupOfRecording(r)));
+
+// 乐评
+const allReviews = await getCollection('reviews');
+const reviews = allReviews.filter((r) => r.data.album === album.id);
+
+// 版本对比:本专辑涉及的作品 → 其他录音版本 → 所属专辑
+const workSlugs = [...new Set(recs.flatMap((r) => r.data.works as string[]))];
+const compareRows: Array<{
+  work: any;
+  rec: any;
+  album: any;
+  lineup: string;
+}> = [];
+for (const ws of workSlugs) {
+  const siblings = (await recordingsOfWork(ws)).filter((r) => !album.data.recordings.includes(r.id));
+  for (const sib of siblings) {
+    const sibAlbums = await albumsOfRecording(sib.id);
+    for (const sa of sibAlbums) {
+      compareRows.push({
+        work: await getEntry('works', ws),
+        rec: sib,
+        album: sa,
+        lineup: await lineupOfRecording(sib),
+      });
+    }
+  }
+}
+
+// 阵容主行(第一条录音)
+const primary = recDetails[0];
+
+/** 段落化:内容字段按空行分段 */
+const paras = (s) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+---
+
+<Base title={`${album.data.title} — 聆听经典`} description={album.data.essence}>
+  <article>
+    <!-- ① 封面 + 基本信息 -->
+    <div class="album-hero">
+      <div class="hero-cover">
+        <Cover
+          cover={album.data.cover}
+          label={album.data.label}
+          title={album.data.title}
+          artist={lineups[0]}
+        />
+      </div>
+      <div class="hero-info">
+        <span class="eyebrow">{album.data.label} · {album.data.release_year}</span>
+        <h1>{album.data.title}</h1>
+        {album.data.title_en && <p class="title-en">{album.data.title_en}</p>}
+        <p class="lede" style="margin:18px 0">{album.data.essence}</p>
+
+        <div class="meta-row" style="margin-bottom:14px">
+          {primary?.works.map((w) => (
+            <span><a href={`/works/${w.id}/`}>{w.data.title}</a></span>
+          ))}
+        </div>
+
+        <div class="meta-row" style="margin-bottom:14px">
+          <span class="k">演奏</span>
+          <span class="v">{[...new Set(lineups)].join(';')}</span>
+        </div>
+        <div class="meta-row" style="margin-bottom:14px">
+          <span class="k">录音</span>
+          <span class="v">{[...new Set(recs.map((r) => r.data.recording_year))].join(' / ')}</span>
+        </div>
+        <div class="meta-row" style="margin-bottom:22px">
+          <span class="k">推荐指数</span>
+          <Stars rating={album.data.rating} />
+        </div>
+
+        <StreamingButtons links={album.data.streaming_links} />
+      </div>
+    </div>
+
+    <!-- ② 专辑背景 -->
+    <SectionTitle zh="专辑背景" en="About the Recording" />
+    <div class="prose">
+      {paras(album.data.background).map((p) => <p>{p}</p>)}
+    </div>
+
+    <!-- ③ 专家观点 / 编辑导读 双栏 -->
+    <SectionTitle zh="观点与导读" en="Perspectives" />
+    <div class="two-col">
+      <div>
+        <h3 class="col-head">专家观点<span>Critical Voices</span></h3>
+        {reviews.length === 0 && <p class="col-empty">本专辑的乐评引用尚在整理中。</p>}
+        {reviews.map((rv) => (
+          <div class="review-item">
+            {rv.data.quote && (
+              <blockquote class="pull-quote">
+                “{rv.data.quote}”
+                <cite>{rv.data.media}{rv.data.author ? ` · ${rv.data.author}` : ''}</cite>
+              </blockquote>
+            )}
+            <p style="font-size:14.5px;color:var(--ink-soft)">{rv.data.summary_zh.split(/\n\s*\n/).map((t) => t.trim()).join('')}</p>
+            <p style="font-size:12.5px;margin-top:8px">
+              <a href={rv.data.url} target="_blank" rel="noopener noreferrer">原文:{rv.data.media} — {rv.data.title}</a>
+            </p>
+          </div>
+        ))}
+      </div>
+      <div>
+        <h3 class="col-head">编辑导读<span>Editor's Guide</span></h3>
+        <div class="prose" style="font-size:15px">
+          {paras(album.data.editorial).map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ 曲目与录音 -->
+    <SectionTitle zh="曲目与录音" en="Works & Recordings" />
+    <div class="rec-list">
+      {recs.map((r, i) => (
+        <div class="rec-item">
+          <div class="rec-works">
+            {recDetails[i].works.map((w) => (
+              <a href={`/works/${w.id}/`}>{w.data.title}</a>
+            ))}
+          </div>
+          <div class="meta-row">
+            <span class="k">演奏</span><span class="v">{lineups[i]}</span>
+            <span class="k">年份</span><span class="v">{r.data.recording_year}</span>
+            {r.data.venue && (<span class="k">地点</span><span class="v">{r.data.venue}</span>)}
+          </div>
+          {r.data.style_tags.length > 0 && (
+            <p style="margin-top:8px">
+              {r.data.style_tags.map((t) => <span class="chip">{t}</span>)}
+            </p>
+          )}
+          {r.data.sound_notes && <p style="font-size:14px;color:var(--ink-soft);margin-top:8px">{r.data.sound_notes.replace(/\n\s*/g, '')}</p>}
+        </div>
+      ))}
+    </div>
+
+    <!-- ⑤ 聆听指南(时间轴绑定具体录音) -->
+    {recs.some((r) => r.data.guide.length > 0) && (
+      <>
+        <SectionTitle zh="聆听指南" en="Listening Guide" />
+        <p class="guide-bind">以下时间轴与段落说明均针对本专辑的具体录音版本,不可直接套用于其他版本。</p>
+        {recs.filter((r) => r.data.guide.length > 0).map((r) => (
+          <div style="margin-bottom:48px">
+            {recs.length > 1 && <h3 style="font-size:18px;margin-bottom:18px">{lineups[recs.indexOf(r)]}</h3>}
+            {r.data.guide.map((m) => (
+              <div class="guide-movement">
+                <h3>{m.movement}</h3>
+                {m.sections.map((s) => (
+                  <div class="guide-row">
+                    <div class="guide-cue">{s.cue}</div>
+                    <div class="guide-note"><span class="gt">{s.title}</span>{s.note}</div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </>
+    )}
+
+    <!-- ⑥ 同作品其他版本 -->
+    {compareRows.length > 0 && (
+      <>
+        <SectionTitle zh="同一作品,不同演绎" en="Alternative Versions" />
+        <table class="compare-table">
+          <thead>
+            <tr><th>作品</th><th>演绎</th><th>年份</th><th>风格</th><th>专辑</th></tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr>
+                <td>{row.work?.data.title}</td>
+                <td>{row.lineup}</td>
+                <td>{row.rec.data.recording_year}</td>
+                <td>{row.rec.data.style_tags.slice(0, 2).join(' / ')}</td>
+                <td><a href={`/albums/${row.album.id}/`}>{row.album.data.title}</a><br />
+                  <Stars rating={row.album.data.rating} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    )}
+
+    <!-- ⑦ 标签 -->
+    {album.data.tags.length > 0 && (
+      <p style="margin-top:40px">{album.data.tags.map((t) => <span class="chip">{t}</span>)}</p>
+    )}
+  </article>
+</Base>
+
+<style>
+  .album-hero {
+    display: grid;
+    grid-template-columns: minmax(260px, 380px) 1fr;
+    gap: 44px;
+    align-items: start;
+    margin-top: 52px;
+  }
+  .hero-info h1 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    margin: 4px 0 4px;
+  }
+  .title-en {
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .col-head {
+    font-size: 17px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .col-head span {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .col-empty {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .review-item {
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .review-item:last-child {
+    border-bottom: none;
+  }
+  .rec-list {
+    display: grid;
+    gap: 20px;
+  }
+  .rec-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 20px 24px;
+  }
+  .rec-works {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .guide-bind {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    border-left: 3px solid var(--gold-soft);
+    padding-left: 12px;
+  }
+  .chip {
+    margin-right: 8px;
+  }
+  @media (max-width: 860px) {
+    .album-hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .hero-cover {
+      max-width: 340px;
+    }
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+/** 作曲家索引页 */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import { PERIOD_NAMES } from '../../utils/data';
+
+const composers = (await getCollection('composers')).sort((a, b) => a.data.birth.localeCompare(b.data.birth));
+const works = await getCollection('works');
+
+const PERIOD_ORDER = ['baroque', 'classical', 'romantic', 'late-romantic', 'modern'];
+---
+
+<Base title="作曲家 — 聆听经典" description="按时期浏览作曲家、代表作品与推荐录音。">
+  <div style="margin-top:52px">
+    <span class="eyebrow">Composers</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">作曲家</h1>
+    <p style="color:var(--ink-soft);max-width:640px;margin-top:12px">
+      从巴洛克到浪漫主义,每位作曲家一页生平、代表作品与推荐录音。
+    </p>
+
+    {PERIOD_ORDER.filter((p) => composers.some((c) => c.data.period === p)).map((p) => (
+      <>
+        <SectionTitle zh={PERIOD_NAMES[p]} en={p} />
+        <div class="composer-grid">
+          {composers.filter((c) => c.data.period === p).map((c) => {
+            const count = works.filter((w) => w.data.composer === c.id).length;
+            return (
+              <a class="composer-card" href={`/composers/${c.id}/`}>
+                <span class="mono">{c.data.monogram}</span>
+                <span class="c-name">{c.data.name}</span>
+                <span class="c-meta">{c.data.birth}–{c.data.death ?? ''} · 作品 {count} 部</span>
+              </a>
+            );
+          })}
+        </div>
+      </>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .composer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .composer-card {
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .composer-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .mono {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .c-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .c-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+</style>

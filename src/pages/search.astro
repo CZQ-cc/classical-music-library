@@ -1,0 +1,48 @@
+---
+/** 搜索页:Pagefind 客户端索引(构建后生成,dev 模式不可用属正常) */
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="搜索 — 聆听经典" description="全站搜索:唱片、作品、作曲家。">
+  <div style="margin-top:52px">
+    <span class="eyebrow">Search</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">搜索</h1>
+    <p style="color:var(--ink-soft);margin:12px 0 28px">
+      支持唱片、作品、作曲家的中英文关键词,如「命运」「克莱伯」「Goldberg」。
+    </p>
+    <div id="search"></div>
+  </div>
+</Base>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script>
+  // Pagefind 索引在构建(npm run build)后生成;开发模式下此页不可用
+  function initSearch() {
+    const PagefindUI = (window as any).PagefindUI;
+    try {
+      if (!PagefindUI) throw new Error('pagefind-ui.js 未加载');
+      new PagefindUI({
+        element: '#search',
+        showImages: false,
+        translations: {
+          placeholder: '搜索唱片、作品、作曲家……',
+          clear_search: '清除',
+          load_more: '加载更多结果',
+          search_label: '站内搜索',
+          zero_results: `未找到「[SEARCH_TERM]」,换个关键词试试`,
+          many_results: `共 [COUNT] 条结果,关于「[SEARCH_TERM]」`,
+          one_result: `[COUNT] 条结果,关于「[SEARCH_TERM]」`,
+          searching: `正在搜索「[SEARCH_TERM]」…`,
+        },
+      });
+    } catch {
+      const el = document.getElementById('search');
+      if (el) {
+        el.innerHTML =
+          '<p style="color:var(--muted)">搜索索引尚未生成:请先运行 <code>npm run build</code>。开发模式(npm run dev)下本页不可用。</p>';
+      }
+    }
+  }
+  initSearch();
+</script>

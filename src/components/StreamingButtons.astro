@@ -1,0 +1,42 @@
+---
+/** 串流按钮组:大陆可访问平台排前,未核对链接标提示 */
+import { PLATFORM_NAMES } from '../utils/data';
+
+interface Link {
+  platform: string;
+  url: string;
+  verified: boolean;
+}
+
+interface Props {
+  links: Link[];
+}
+
+const { links } = Astro.props;
+const ordered = ['apple-music', 'netease', 'qq-music', 'spotify', 'youtube-music', 'qobuz', 'tidal'];
+const sorted = [...links].sort((a, b) => ordered.indexOf(a.platform) - ordered.indexOf(b.platform));
+const hasUnverified = sorted.some((l) => !l.verified);
+---
+
+<div>
+  <div class="streaming-row">
+    {
+      sorted.map((l) => {
+        const name = PLATFORM_NAMES[l.platform];
+        return (
+          <a class="btn" href={l.url} target="_blank" rel="noopener noreferrer">
+            {name?.zh ?? l.platform}
+            <span class="platform-en">{name?.en ?? ''}</span>
+          </a>
+        );
+      })
+    }
+  </div>
+  {
+    hasUnverified && (
+      <p class="link-status" style="margin-top:10px">
+        * 部分链接为平台搜索入口,跳转后请以艺术家与专辑名核对版本,避免误听其他录音版本。
+      </p>
+    )
+  }
+</div>

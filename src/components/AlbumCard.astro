@@ -1,0 +1,35 @@
+---
+/** 唱片卡片:封面 + 厂牌 + 标题 + 阵容 + 评分 */
+import Cover from './Cover.astro';
+import Stars from './Stars.astro';
+import type { CollectionEntry } from 'astro:content';
+import { lineupOfRecording } from '../utils/data';
+
+interface Props {
+  album: CollectionEntry<'albums'>;
+}
+
+const { album } = Astro.props;
+const mainRecordingSlug = album.data.recordings[0];
+const { getEntry } = await import('astro:content');
+const mainRecording = await getEntry('recordings', mainRecordingSlug);
+if (!mainRecording) {
+  throw new Error(`[数据完整性] 专辑「${album.id}」引用的录音「${mainRecordingSlug}」不存在`);
+}
+const lineup = await lineupOfRecording(mainRecording);
+---
+
+<a class="album-card" href={`/albums/${album.id}/`}>
+  <Cover
+    cover={album.data.cover}
+    label={album.data.label}
+    title={album.data.title}
+    artist={lineup}
+  />
+  <div class="ac-label">{album.data.label} · {album.data.release_year}</div>
+  <div class="ac-title">{album.data.title}</div>
+  <div class="ac-sub">{lineup}</div>
+  <div class="ac-meta">
+    <Stars rating={album.data.rating} />
+  </div>
+</a>

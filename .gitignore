@@ -1,0 +1,22 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.astro/
+
+# 环境与编辑器
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 数据脚本产出的草稿(人工核对后才入 content)
+src/content/_drafts/
+
+# ZCode 会话文件
+.zcode/

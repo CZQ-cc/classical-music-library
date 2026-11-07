@@ -1,0 +1,67 @@
+---
+/** 专题索引 */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+
+const collections = await getCollection('collections');
+---
+
+<Base title="专题 — 聆听经典" description="古典音乐聆听路线与专题榜单。">
+  <div style="margin-top:52px">
+    <span class="eyebrow">Features</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">专题</h1>
+    <p style="color:var(--ink-soft);max-width:640px;margin-top:12px">
+      榜单与路线图:按目标而非曲目库组织唱片。
+    </p>
+
+    <SectionTitle zh="全部专题" en="All Features" />
+    <div class="col-list">
+      {collections.map((c) => (
+        <a class="col-card" href={`/collections/${c.id}/`}>
+          <span class="cc-count">{c.data.items.length} 张</span>
+          <div class="cc-title">{c.data.title}</div>
+          {c.data.subtitle && <div class="cc-sub">{c.data.subtitle}</div>}
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .col-list {
+    display: grid;
+    gap: 18px;
+    max-width: 720px;
+  }
+  .col-card {
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 24px 28px;
+    display: block;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.15s ease;
+    position: relative;
+  }
+  .col-card:hover {
+    border-color: var(--gold);
+  }
+  .cc-count {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+  .cc-title {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 700;
+  }
+  .cc-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+</style>

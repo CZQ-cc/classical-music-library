@@ -1,0 +1,15 @@
+---
+/** 评分转五星展示(9.8 → ★★★★★) */
+interface Props {
+  rating: number;
+  showScore?: boolean;
+}
+
+const { rating, showScore = true } = Astro.props;
+const full = Math.round(rating / 2);
+---
+
+<span class="stars" title={`编辑推荐指数 ${rating}/10`}>
+  {'★'.repeat(full)}<span class="off">{'★'.repeat(5 - full)}</span>
+  {showScore && <span style="color:var(--muted);margin-left:6px;font-size:12px">{rating.toFixed(1)}</span>}
+</span>
