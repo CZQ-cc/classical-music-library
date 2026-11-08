@@ -1,0 +1,36 @@
+works: [schubert-unfinished]
+conductor: carlos-kleiber
+orchestra: wiener-philharmoniker
+recording_year: "1978"
+style_tags: [灵动凌厉, 歌唱性, 传奇名盘]
+sound_notes: |
+  与贝五七同一化学反应的另一张:克莱伯与维也纳爱乐的舒伯特,
+  圆号在雾里,歌唱在光里,DG 的录音为它配上了天鹅绒。
+guide:
+  - movement: 第一乐章:中庸的快板
+    key: b小调
+    sections:
+      - cue: 引子
+        title: 雾中的圆号
+        key: b小调
+        dynamic: pp
+        contour: [35, 32, 30, 28, 26]
+        instruments: [大提琴, 低音提琴, 圆号]
+        note: 大提琴与低音提琴在暗处低语,圆号的追问像雾里的一盏灯——交响曲史上最著名的开篇之一。克莱伯让这段「走」得比任何人慢,却毫不拖。
+      - cue: 呈示部
+        title: 一首没有歌词的歌
+        key: b小调
+        dynamic: p
+        contour: [50, 58, 55, 62, 58, 64]
+        instruments: [大提琴, 弦乐]
+        note: 大提琴接过主题后,你突然意识到:这不是交响曲的写法,是歌的写法——旋律长得越界,却一步都不多余。克莱伯的弦乐让它像在发光。
+  - movement: 第二乐章:稍快的行板
+    key: E大调
+    sections:
+      - cue: 全章
+        title: 歌唱到最后一小节
+        key: E大调
+        dynamic: p
+        contour: [48, 52, 55, 52, 56, 58, 55]
+        instruments: [弦乐, 单簧管]
+        note: E 大调的光——克莱伯的管乐独唱与弦乐应答,让这两个乐章听起来像「已经完成」:美因残缺而完整,这正是它成为不朽的方式。

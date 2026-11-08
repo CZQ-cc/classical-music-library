@@ -1,0 +1,39 @@
+works: [mahler-symphony-5]
+conductor: herbert-von-karajan
+orchestra: berliner-philharmoniker
+recording_year: "1973"
+style_tags: [厚重宏大, 从葬礼到婚礼, 晚期浪漫]
+sound_notes: |
+  卡拉扬 1973 年的马勒第五以「无与伦比的弦乐」著称:送葬进行曲的沉痛
+  与小柔板的温柔同样极致,DG 的录音让每个声部都有自己的聚光灯。
+guide:
+  - movement: 第一乐章:送葬进行曲
+    key: 升c小调
+    sections:
+      - cue: 开头
+        title: 小号的葬礼号角
+        key: 升c小调
+        dynamic: f
+        contour: [30, 45, 25, 42, 28, 40]
+        instruments: [独奏小号, 弦乐]
+        note: 独奏小号的号角撕开寂静,然后仪仗队式的行进开始——马勒写的不是哀悼谁,是「在枪林弹雨中如仪仗队般」的荒诞葬礼。卡拉扬让它像一座移动的黑色纪念碑。
+  - movement: 第四乐章:小柔板
+    key: F大调
+    sections:
+      - cue: 全乐章
+        title: 写给阿尔玛的情书
+        key: F大调
+        dynamic: pp
+        contour: [50, 58, 54, 62, 56, 48, 42]
+        instruments: [竖琴, 弦乐]
+        note: 竖琴的琶音铺开,弦乐唱出马勒写给未婚妻阿尔玛的话——维斯康蒂把它放进《魂断威尼斯》,从此它成了「死亡与美」的代名词。这里的每一句都长得不合理,却一句都不想结束。
+  - movement: 第五乐章:回旋曲-终曲
+    key: D大调
+    sections:
+      - cue: 赋格与欢腾
+        title: 从荆棘开出欢腾
+        key: D大调
+        dynamic: ff
+        contour: [35, 55, 45, 70, 55, 80, 92]
+        instruments: [全体乐队]
+        note: 终曲从最笨拙的赋格素材开始,经过荆棘般的对位跋涉,最后圆号与全体乐队炸成欢腾——马勒的欢乐从不白给,它是挣来的。结尾的加速像把整个管弦乐队抛向天空。

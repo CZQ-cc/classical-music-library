@@ -1,0 +1,50 @@
+works: [vivaldi-four-seasons]
+conductor: trevor-pinnock
+orchestra: the-english-concert
+soloists:
+  - person: trevor-pinnock
+    role: 羽管键琴兼指挥
+recording_year: "1982"
+style_tags: [古乐器, 明快分寸, 标题音乐鼻祖]
+sound_notes: |
+  Archiv 的明亮录音:西蒙·斯坦戴奇的小提琴像巴洛克画笔,
+  平诺克的羽管键琴在下方拨出清晰的节拍。《Classic Review》将它列入
+  「四季最佳录音 Top 10」,称其「历经岁月而依然出色」。
+guide:
+  - movement: 春(RV 269)
+    key: E大调
+    sections:
+      - cue: 第一乐章
+        title: 鸟儿的歌唱
+        key: E大调
+        dynamic: f
+        contour: [55, 65, 55, 75, 60, 78, 62, 80]
+        instruments: [小提琴独奏, 弦乐]
+        note: 「春天来了」的和弦宣言之后,高音的鸟鸣、雷雨、鸟再归——十四行诗的每一句都有音乐注脚。斯坦戴奇的鸟鸣装饰音是所有版本里最像真鸟的。
+      - cue: 第二乐章
+        title: 牧羊人在树下沉睡
+        key: 升c小调
+        dynamic: pp
+        contour: [48, 45, 42, 40, 38]
+        instruments: [独奏小提琴, 弱奏弦乐]
+        note: 独奏小提琴是睡着的牧羊人,中提琴的悸动是「他的狗」——维瓦尔第在乐谱上真的这样标注。
+  - movement: 夏(RV 315)
+    key: g小调
+    sections:
+      - cue: 第三乐章
+        title: 暴风雨
+        key: g小调
+        dynamic: ff
+        contour: [30, 60, 25, 65, 20, 70, 30]
+        instruments: [全体乐队]
+        note: 巴洛克最狂野的页码:冰雹从天而降,农作物倒伏——四组弦乐像四道闪电轮流劈下。本真派的速度让这场暴风雨比任何现代版都更吓人。
+  - movement: 冬(RV 297)
+    key: f小调
+    sections:
+      - cue: 第二乐章
+        title: 炉火旁的眺望
+        key: 降E大调
+        dynamic: p
+        contour: [50, 55, 48, 52, 45, 48]
+        instruments: [独奏小提琴, 弦乐]
+        note: 窗外有雨,炉火正旺——最舒服的两分钟。与《夏》的暴风雨对照,是「四季」的全部秘密:极端,然后温柔。

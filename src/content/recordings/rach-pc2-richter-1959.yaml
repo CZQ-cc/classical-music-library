@@ -1,0 +1,50 @@
+works: [rach-piano-concerto-2]
+conductor: stanislaw-wislocki
+orchestra: warsaw-national-philharmonic
+soloists:
+  - person: sviatoslav-richter
+    role: 钢琴
+recording_year: "1959"
+venue: 华沙国家爱乐大厅
+style_tags: [钢铁触键, 俄式浪漫, 传奇名盘]
+sound_notes: |
+  1959 年华沙现场(录音略有听众杂音):里赫特把这部「最受欢迎的协奏曲」
+  弹出了别人不敢想的强度——第一乐章的渐强像山体滑坡,慢乐章又轻得像雪。
+guide:
+  - movement: 第一乐章
+    key: c小调
+    sections:
+      - cue: 开头
+        title: 钟声由远及近
+        key: c小调
+        dynamic: p
+        contour: [25, 35, 45, 55, 65, 75]
+        instruments: [钢琴, 弦乐]
+        note: 钢琴独奏的和弦像教堂钟声一记记敲响,弦乐随后涌起——「由远及近」的结构是一切浪漫协奏曲开场中最戏剧的。里赫特的渐强像山体滑坡,不可回头。
+      - cue: 展开部高潮
+        title: 钢铁的歌唱
+        key: c小调
+        dynamic: ff
+        contour: [60, 80, 65, 85, 70, 90]
+        instruments: [钢琴, 全体乐队]
+        note: 乐队全奏与钢琴的八度对决——里赫特的钢铁触键在这里火力全开,却没有一个音是砸出来的废话。
+  - movement: 第二乐章
+    key: E大调
+    sections:
+      - cue: 全乐章
+        title: 雪落在琴键上
+        key: E大调
+        dynamic: pp
+        contour: [50, 46, 52, 44, 48, 40]
+        instruments: [钢琴, 长笛, 单簧管]
+        note: 长笛与单簧管在弦乐雾里开出全曲最著名的旋律,钢琴像雪一样落在句间。里赫特的轻比他的响更惊人——听惯钢铁的手,弹出了羽毛。
+  - movement: 第三乐章
+    key: c小调
+    sections:
+      - cue: 终曲
+        title: 大调的凯旋
+        key: C大调
+        dynamic: ff
+        contour: [40, 70, 55, 80, 90, 96]
+        instruments: [钢琴, 全体乐队]
+        note: 拉赫玛尼诺夫的答案:把旋律交给乐队,钢琴用和弦与音群护送到终点——最后和弦砸下的一刻,没有人不激动。

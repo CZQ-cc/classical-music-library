@@ -1,0 +1,39 @@
+works: [tchaikovsky-piano-concerto-1]
+conductor: herbert-von-karajan
+orchestra: berliner-philharmoniker
+soloists:
+  - person: sviatoslav-richter
+    role: 钢琴
+recording_year: "1962"
+style_tags: [钢铁触键, 厚重宏大, 双巨人相遇]
+sound_notes: |
+  两大巨人(里赫特 × 卡拉扬)唯一一次录音室合作:DG 的录音
+  把开场巨浪的规模感拍到了极限,里赫特的钢铁触键与柏林爱乐互不相让。
+guide:
+  - movement: 第一乐章
+    key: 降b小调
+    sections:
+      - cue: 开头
+        title: 古典音乐最大的开幕词
+        key: 降b小调
+        dynamic: ff
+        contour: [30, 90, 35, 92, 40, 95]
+        instruments: [钢琴, 铜管, 弦乐]
+        note: 铜管一声令下,钢琴的和弦如巨浪砸落——106 小节的「夸大其词」,是协奏曲史上最著名的开幕。里赫特与卡拉扬把这场面拍成了史诗的序幕。
+      - cue: 正片
+        title: 决斗开始
+        key: 降b小调
+        dynamic: f
+        contour: [55, 70, 60, 75, 62, 78]
+        instruments: [钢琴, 乐队]
+        note: 「正片」里钢琴与乐队时而决斗时而共舞——里赫特的每一句都像刀刃,卡拉扬的乐队用规模回应。这是两大强者的诚实对话。
+  - movement: 第三乐章
+    key: 降b小调
+    sections:
+      - cue: 终曲
+        title: 火热的回旋曲
+        key: 降b小调
+        dynamic: ff
+        contour: [45, 65, 50, 72, 58, 78, 92]
+        instruments: [钢琴, 全体乐队]
+        note: 乌克兰民歌主题的回旋曲一路火热到尾,速度越推越快,最后像烟花收场。里赫特在这里的干净利落,是「炫技」二字的最佳注脚。

@@ -1,0 +1,50 @@
+works: [beethoven-emperor-concerto]
+conductor: herbert-von-karajan
+orchestra: berliner-philharmoniker
+soloists:
+  - person: emil-gilels
+    role: 钢琴
+recording_year: "1971"
+style_tags: [钢与天鹅绒, 威严, 苏联双峰]
+sound_notes: |
+  吉列尔斯 × 卡拉扬 × 柏林爱乐(DG 1971):「钢与天鹅绒」的钢琴
+  与大教堂式乐队,把「皇帝」的威严拍到极限。乐迷圈长期将其列为
+  该曲首选版本之一。
+guide:
+  - movement: 第一乐章:快板
+    key: 降E大调
+    sections:
+      - cue: 开头
+        title: 钢琴打断乐队
+        key: 降E大调
+        dynamic: f
+        contour: [30, 85, 30, 88, 32, 90]
+        instruments: [钢琴, 乐队]
+        note: 乐队三声强奏,钢琴以一大段华彩打断——独奏家在开场就「抢话」,协奏曲史上第一个这样的开场。吉列尔斯的华彩威严得像加冕。
+      - cue: 呈示部
+        title: 帝国的建筑
+        key: 降E大调
+        dynamic: f
+        contour: [55, 60, 65, 58, 68, 62]
+        instruments: [钢琴, 乐队]
+        note: 主题与副题像宫殿的两翼,吉列尔斯的和弦把每一根柱子都砌得笔直——「钢与天鹅绒」在这里同时可见。
+  - movement: 第二乐章
+    key: B大调
+    sections:
+      - cue: 全乐章
+        title: 拨弦上的默祷
+        key: B大调
+        dynamic: pp
+        contour: [52, 56, 50, 54, 46, 40]
+        instruments: [钢琴, 拨弦弦乐]
+        note: 弦乐拨弦像夜里的钟摆,钢琴的旋律像在默祷——然后一个小七度的转调,不换乐章直接滑进终曲:这个「无缝转调」是全曲最漂亮的设计。
+  - movement: 第三乐章
+    key: 降E大调
+    sections:
+      - cue: 猎歌终曲
+        title: 定音鼓与钢琴的狩猎
+        key: 降E大调
+        dynamic: f
+        contour: [45, 60, 48, 65, 52, 70, 85]
+        instruments: [钢琴, 定音鼓, 全体乐队]
+        note: 回旋曲主题带着猎号的滚烫,定音鼓与钢琴互相追逐——吉列尔斯的八度像铁蹄,卡拉扬的乐队像森林。结尾在狂欢中加速收场,威严到最后一刻。

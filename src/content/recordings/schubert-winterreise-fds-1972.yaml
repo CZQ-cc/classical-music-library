@@ -1,0 +1,48 @@
+works: [schubert-winterreise]
+soloists:
+  - person: dietrich-fischer-dieskau
+    role: 男中音
+  - person: gerald-moore
+    role: 钢琴
+recording_year: "1971–72"
+style_tags: [长乐句, 字字入戏, 艺术歌曲之王]
+sound_notes: |
+  菲舍尔-迪斯考三次《冬之旅》录音中的第二次(与杰拉尔德·摩尔),被广泛视为
+  艺术歌曲录音史的标杆——《留声机》专题称他的声音「比男中音更深……
+  时而冲动,甚至爆发」,并指出《冬之旅》「是杰作,无疑是流传最久、
+  诠释空间最大的声乐套曲」。
+guide:
+  - movement: 第一部
+    key: d小调
+    sections:
+      - cue: 「晚安」
+        title: 雪夜离开
+        key: d小调
+        dynamic: p
+        contour: [42, 38, 34, 30, 26, 22]
+        instruments: [男中音, 钢琴]
+        note: 第一句就交代了结局:「我来时是陌生人,留下一串脚印,然后离开。」菲舍尔-迪斯考的每个德文字都被唱成戏,钢琴的脚印节奏自始至终不停。
+      - cue: 「菩提树」
+        title: 故乡的呼唤
+        key: E大调
+        dynamic: p
+        contour: [55, 58, 52, 55, 48, 44]
+        instruments: [男中音, 钢琴]
+        note: 全套里最温柔的歌:菩提树答应给他安眠,他绕道而行——「虽然离我的路不远」。圆号般的钢琴开场像故乡吹来的风。
+  - movement: 第二部
+    key: a小调
+    sections:
+      - cue: 「春梦」
+        title: 梦醒时分
+        key: a小调
+        dynamic: f
+        contour: [30, 65, 30, 68, 28, 70]
+        instruments: [男中音, 钢琴]
+        note: 梦见春天与爱人,醒来是冰冷的石屋——舒伯特在梦里用大调,惊醒用小调的碎音。菲舍尔-迪斯考的「笑」比哭更冷。
+      - cue: 「老艺人」
+        title: 雪原尽头的地平线
+        key: a小调
+        dynamic: pp
+        contour: [25, 22, 20, 18, 16, 14]
+        instruments: [男中音, 钢琴]
+        note: 全曲终章:摇琴的老艺人赤脚站在冰上,无人问津。旅人问他:「你要不要跟我走?要不要为我弹琴?」最后的和声没有解决——旅行仍在继续。

@@ -1,0 +1,39 @@
+works: [debussy-la-mer]
+conductor: herbert-von-karajan
+orchestra: berliner-philharmoniker
+recording_year: "1985"
+style_tags: [厚重光泽, 印象主义, 法音德奏]
+sound_notes: |
+  卡拉扬晚年的德彪西是「法音德奏」的奇特标本:用柏林爱乐的厚重光泽
+  画出印象派的光与水——评论界争议,听感上却独一无二。
+guide:
+  - movement: 牧神午后前奏曲
+    key: E大调
+    sections:
+      - cue: 开头长笛
+        title: 现代音乐的开端
+        key: E大调
+        dynamic: p
+        contour: [55, 48, 52, 42, 46, 36, 40]
+        instruments: [独奏长笛, 圆号, 弦乐]
+        note: 长笛的下行半音像午后蒸腾的热气——1894 年的这一句,让和声从此变成了颜色。没有发展,没有冲突,只有光影的呼吸。
+  - movement: 海:第二幅「浪之嬉戏」
+    key: c小调
+    sections:
+      - cue: 全乐章
+        title: 浪的游戏
+        key: c小调
+        dynamic: f
+        contour: [40, 62, 35, 68, 42, 70, 38, 72]
+        instruments: [弦乐, 竖琴, 铜管, 长笛]
+        note: 全曲最「顽皮」的乐章:弦乐的浪线、竖琴的水花、长笛的浪尖——德彪西像在用管弦乐画葛饰北斋的浪爪。卡拉扬让每一道浪都有重量。
+  - movement: 海:第三幅「风与海的对话」
+    key: 降D大调
+    sections:
+      - cue: 尾声
+        title: 浪墙
+        key: 降D大调
+        dynamic: ff
+        contour: [50, 70, 60, 80, 70, 90, 96]
+        instruments: [全体乐队]
+        note: 从低音木管的风声开始,浪一层层垒起,铜管像浪墙崩塌——管弦乐史上最壮丽的「水的构图」之一。听完这段,再去看一眼北斋的版画。

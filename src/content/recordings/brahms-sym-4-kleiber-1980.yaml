@@ -1,0 +1,36 @@
+works: [brahms-symphony-4]
+conductor: carlos-kleiber
+orchestra: wiener-philharmoniker
+recording_year: "1980"
+style_tags: [灵动凌厉, 帕萨卡利亚挽歌, 传奇名盘]
+sound_notes: |
+  克莱伯一生仅录两部交响曲,这是第二部(勃拉姆斯第四,DG 1980)。
+  乐评界公认:无论与谁比,这一版都在「最伟大勃拉姆斯第四」的极短名单上。
+guide:
+  - movement: 第一乐章
+    key: e小调
+    sections:
+      - cue: 开头
+        title: 旋律想起了自己
+        key: e小调
+        dynamic: p
+        contour: [30, 40, 32, 45, 38, 52, 42]
+        instruments: [弦乐, 圆号, 木管]
+        note: 第一句像旋律在自己身上「睡了一下又醒来」——小提琴的分句在克莱伯手里有呼吸的错觉。乐评称他 1980 年的现场版「非凡的第一乐章」,录音室版同样如此。
+      - cue: 展开部
+        title: 支柱的崩塌
+        key: e小调
+        dynamic: f
+        contour: [45, 60, 50, 68, 55, 72]
+        instruments: [全体乐队]
+        note: 主题的骨架被逐块拆下又重组——勃拉姆斯式「发展」的教科书。克莱伯把张力藏在细节里,直到铜管亮出底牌。
+  - movement: 终曲:有力的快板
+    key: e小调
+    sections:
+      - cue: 帕萨卡利亚
+        title: 三十个变奏的挽歌
+        key: e小调
+        dynamic: f
+        contour: [40, 35, 45, 32, 48, 30, 42]
+        instruments: [全体乐队]
+        note: 固定低音上的三十个变奏,每八个一炉,像用巴洛克技法铸成的巨大挽歌。克莱伯的速度比谁都快,但每个变奏的轮廓都清清楚楚——结尾没有胜利,只有「不可能再有」的沉默。这是古典音乐最伟大的终曲之一。

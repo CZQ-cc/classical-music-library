@@ -1,0 +1,40 @@
+works: [chopin-etudes]
+soloists:
+  - person: maurizio-pollini
+    role: 钢琴
+recording_year: "1972"
+style_tags: [技术天花板, 清晰如仪器, 左右手独立]
+sound_notes: |
+  DG 1972 年录音:钢琴的立体感前所未有——左右手像两台乐器,
+  「冬风」的右手音群每一粒都可数。录音史上的技术奇观。
+guide:
+  - movement: Op. 10 No. 3「离别」
+    key: E大调
+    sections:
+      - cue: 主题
+        title: 最简单的旋律,最难的曲子
+        key: E大调
+        dynamic: p
+        contour: [45, 52, 58, 54, 60, 50]
+        instruments: [钢琴]
+        note: 主题简单到人人能哼;肖邦说「这是我一生最美的旋律」。但中段之后左手的技术风暴会让演奏者明白:这首曲子的难度在故事深处。波利尼的歌唱不输任何「抒情派」。
+  - movement: Op. 10 No. 12「革命」
+    key: c小调
+    sections:
+      - cue: 全曲
+        title: 华沙陷落之日
+        key: c小调
+        dynamic: ff
+        contour: [20, 70, 25, 75, 20, 78, 85]
+        instruments: [钢琴]
+        note: 左手 torrents 般的下行音流 + 右手的悲愤宣言——肖邦在赴巴黎途中听闻华沙陷落,把整座城市的沦亡写进了练习曲。波利尼的左手像战争机器,右手像新闻播报员。
+  - movement: Op. 25 No. 11「冬风」
+    key: a小调
+    sections:
+      - cue: 尾声音群
+        title: 风暴中的旋风
+        key: a小调
+        dynamic: ff
+        contour: [15, 65, 20, 72, 18, 78, 85, 92]
+        instruments: [钢琴]
+        note: 舒曼形容右手是「风暴中的旋风」——十一度的音群像被狂风卷起的叶子。波利尼 1972 年版的这一段是录音史上的技术奇观:每一粒音都清可数,而旋风从不减速。
