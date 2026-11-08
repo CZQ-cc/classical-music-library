@@ -1,0 +1,57 @@
+works: [bach-st-matthew-passion]
+conductor: john-eliot-gardiner
+orchestra: english-baroque-soloists
+soloists:
+  - person: monteverdi-choir
+    role: 合唱团
+recording_year: "1988"
+venue: 伦敦
+style_tags: [古乐演奏, 戏剧性, 本真演唱]
+sound_notes: |
+  古乐器的透明质地让双合唱团的结构纤毫毕现:羊肠弦的锋利、自然铜管的悲鸣、
+  羽管键琴在宣叙调下方的低语。《留声机》称加德纳的处理「炽热而具有鲜活的戏剧感」。
+guide:
+  - movement: 开场合唱「来吧,儿女们」
+    key: e小调
+    sections:
+      - cue: 开头
+        title: 双合唱团的巨大脚步
+        key: e小调
+        dynamic: f
+        contour: [35, 50, 65, 58, 70, 62, 75]
+        instruments: [双合唱团, 双乐队, 长笛, 双簧管]
+        note: 十六声部像十四层楼层叠推进,「来吧」的呼唤此起彼伏——受难故事还没开始,整个世界已被卷入。
+  - movement: 第一部分:客西马尼园
+    key: e小调
+    sections:
+      - cue: 耶稣的话
+        title: 光环中的声音
+        key: e小调
+        dynamic: p
+        contour: [50, 46, 42, 38, 34]
+        instruments: [弦乐(光环)]
+        note: 古怪的「光环」:耶稣每句唱词周围都环绕着弦乐的长音,像圣像的金底——古乐器版让它听起来更脆弱、更人性。
+      - cue: 终曲众赞歌
+        title: 第一部分的安眠
+        key: G大调
+        dynamic: p
+        contour: [48, 45, 42, 40, 38]
+        instruments: [双合唱团]
+        note: 门德尔松小时候第一次听到这段,说过「要是上帝让我做音乐,我愿用一生写它」。合唱像夜幕降临,两部分到此中场休息。
+  - movement: 第二部分:各各他
+    key: f小调
+    sections:
+      - cue: 「求你怜悯」
+        title: 女中音的哀求
+        key: f小调
+        dynamic: p
+        contour: [52, 58, 50, 44, 38, 32]
+        instruments: [女中音, 独奏小提琴]
+        note: 加弱音器的小提琴与女中音互相搀扶着下行——受难曲中最著名的咏叹调,古尔德曾为它留下著名键盘改编。
+      - cue: 终曲「我们含泪安睡」
+        title: 世界安睡在坟茔旁
+        key: c小调
+        dynamic: pp
+        contour: [40, 34, 28, 22, 16]
+        instruments: [双合唱团, 弦乐]
+        note: 三个小时的旅程在摇篮曲般的低语中结束。开场的「来吧」与结尾的「安睡」遥遥相望——受难曲的第一句与最后一句,从来是对同一群儿女说的。

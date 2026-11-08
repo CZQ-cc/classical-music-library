@@ -1,0 +1,48 @@
+works: [bach-well-tempered-clavier-1]
+soloists:
+  - person: sviatoslav-richter
+    role: 钢琴
+recording_year: "1970"
+venue: 萨尔斯堡/维也纳
+style_tags: [钢铁触键, 结构如图纸, 音色层次]
+sound_notes: |
+  里赫特用现代钢琴挑战羽管键琴的传统领地:低音厚如大提琴,高音亮如水晶,
+  声部层次像激光切割出的建筑剖面。唱片史上最「清晰」的《平均律》。
+guide:
+  - movement: C大调前奏曲与赋格(BWV 846)
+    key: C大调
+    sections:
+      - cue: 前奏曲
+        title: 水晶的瀑布
+        key: C大调
+        dynamic: p
+        contour: [40, 45, 50, 55, 60, 55, 50, 45]
+        instruments: [钢琴]
+        note: 全部由分解和弦构成的「手指练习」,却美得让古诺一百多年后为它添上旋律(《圣母颂》)。里赫特的音色让每个琶音都像单独的水滴。
+      - cue: 赋格
+        title: 四声部的对话
+        key: C大调
+        dynamic: p
+        contour: [45, 50, 58, 52, 60, 55, 62]
+        instruments: [钢琴]
+        note: 主题出现四次,每次都换一个声部。里赫特的秘诀:每个声部的音色都不一样——用耳朵把四条线「拆」出来,是听赋格的全部乐趣。
+  - movement: 升c小调赋格(BWV 849)
+    key: 升c小调
+    sections:
+      - cue: 五声部赋格
+        title: 大教堂
+        key: 升c小调
+        dynamic: p
+        contour: [35, 42, 50, 58, 65, 58, 50]
+        instruments: [钢琴]
+        note: 五个声部同时进行,是第一卷最艰深的赋格。里赫特像展示建筑模型一样让它层层立起——听的时候请把音量调小,「大教堂」需要安静才能看清。
+  - movement: 降b小调前奏曲与赋格(BWV 867)
+    key: 降b小调
+    sections:
+      - cue: 终曲赋格
+        title: 半音的深渊
+        key: 降b小调
+        dynamic: f
+        contour: [30, 38, 30, 42, 34, 46, 38]
+        instruments: [钢琴]
+        note: 第一卷以 C 大调的天真开始,以降 b 小调的半音深渊结束——「全部调性」之旅的终点是一片凝重的暮色。里赫特的收束像合上一部巨著的封面。

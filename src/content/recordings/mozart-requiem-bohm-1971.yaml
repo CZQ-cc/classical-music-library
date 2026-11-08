@@ -1,0 +1,50 @@
+works: [mozart-requiem]
+conductor: karl-bohm
+orchestra: wiener-philharmoniker
+soloists:
+  - person: monteverdi-choir
+    role: 合唱团(维也纳国立歌剧院合唱团)
+recording_year: "1971"
+venue: 维也纳
+style_tags: [庄重深刻, 大教堂式, 未完成的告别]
+sound_notes: |
+  《留声机》称这一版「合唱音色如光,乐队音响如山岳」——伯姆式的传统重音
+  让「震怒之日」有巴洛克的雷霆,也让「落泪之日」的哀婉沉到底。
+guide:
+  - movement: 进咏曲(Requiem aeternam)
+    key: d小调
+    sections:
+      - cue: 开头
+        title: 巴松在雾中
+        key: d小调
+        dynamic: p
+        contour: [40, 36, 32, 30, 28, 26]
+        instruments: [大管, 圆号, 合唱团]
+        note: 安魂曲以低音巴松的叹息开始,合唱随后像烛光一样一排排点亮「主啊,求你赐给他们永恒的安息」。伯姆的速度极慢——这座大教堂的门槛很高。
+  - movement: 继叙咏「震怒之日」(Dies irae)
+    key: d小调
+    sections:
+      - cue: 震怒之日
+        title: 末日雷霆
+        key: d小调
+        dynamic: ff
+        contour: [30, 75, 30, 75, 35, 80]
+        instruments: [合唱团, 全体乐队]
+        note: 音乐史上被引用最多的「末日图景」:弦乐的碎击像雷雨,合唱的滚音像地陷。伯姆的雷霆从不失控——快而稳,可怕得有秩序。
+      - cue: 「号角响彻四方」(Tuba mirum)
+        title: 独奏小号的宣判
+        key: 降B大调
+        dynamic: f
+        contour: [25, 60, 25, 60, 30, 55]
+        instruments: [独奏长号, 独奏小号, 独唱们]
+        note: 长号与小号一应一答,男低音随后宣判——四个独唱依次出场,像末日法庭的逐级传唤。
+  - movement: 「落泪之日」(Lacrimosa)
+    key: d小调
+    sections:
+      - cue: 全曲
+        title: 十二小节的告别
+        key: d小调
+        dynamic: p
+        contour: [55, 50, 46, 42, 36, 30, 24]
+        instruments: [合唱团, 弦乐]
+        note: 莫扎特亲手写到第八小节就停了笔——上行的哀哭在下坠中结束,像未写完的遗书。伯姆让合唱的「阿门」迟迟不肯落地。听它,等于看见作曲家搁笔的那一刻。

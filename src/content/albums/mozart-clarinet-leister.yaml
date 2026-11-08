@@ -1,0 +1,30 @@
+title: "莫扎特:单簧管协奏曲 & 单簧管五重奏"
+title_en: "Mozart: Clarinet Concerto & Quintet"
+cover: /covers/mozart-clarinet-leister.jpg
+label: Philips
+release_year: 1989
+recordings:
+  - mozart-clarinet-leister-1968
+rating: 9.1
+essence: 莫扎特绝笔之年的歌唱,莱斯特的单簧管像加绒的欧珀。
+tags: [协奏曲, 德奥传统]
+background: |
+  1968 年,柏林爱乐单簧管首席卡尔·莱斯特与伯姆、维也纳爱乐录制莫扎特《单簧管协奏曲》
+  (与《单簧管五重奏》耦合)。莱斯特的音色圆润如歌,与伯姆的从容伴奏互为表里,
+  这张 DG 唱片长期是这部「绝笔协奏曲」的德奥参考版本。
+editorial: |
+  这首协奏曲的正确听法很奢侈:什么都不用准备。第一乐章像散步,柔板像一声被拉长的叹息
+  (电影《走出非洲》用的就是它),末乐章像挥手告别。莱斯特的特别之处在于
+  他敢于用单簧管最低音区的哑光音色——那种音色别的乐器给不了。
+  深夜听,音量中等,效果最佳。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Leister%20Bohm%20Mozart%20Clarinet%20Concerto
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Leister%20Bohm%20Mozart%20Clarinet&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Leister%20Bohm%20Mozart%20Clarinet
+    verified: false

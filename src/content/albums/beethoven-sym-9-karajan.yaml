@@ -1,0 +1,33 @@
+title: "贝多芬:第九交响曲「合唱」"
+title_en: "Beethoven: Symphony No. 9 \"Choral\""
+cover: /covers/beethoven-sym-9-karajan.jpg
+label: Deutsche Grammophon
+release_year: 1963
+recordings:
+  - beethoven-sym-9-karajan-1963
+rating: 9.3
+essence: 1963 年传奇全集的收官明珠,《留声机》「最伟大贝九」专题入选版本。
+featured: true
+tags: [交响曲, 德奥传统, 合唱圣殿]
+background: |
+  1963 年全集的第九交响曲是这套「财务上最大胆」录音工程的收官:此时柏林爱乐
+  刚与 DG 签约,状态如日中天。《留声机》在「贝多芬第九交响曲:最伟大的录音」专题中
+  收录此版,称赞其理想的速度与暗流涌动的强度;乐迷圈长期公认:在卡拉扬为 DG
+  录制的四套贝九中,1963 年版是最均衡、最富活力的一套。
+editorial: |
+  第九交响曲的正确打开方式:别把它当「欢乐颂精选」,它是四幕剧——
+  前三个乐章是纯器乐的三次冲顶(宇宙开篇/定音鼓谐谑/天籁柔板),
+  第四乐章开头先「否定」前三乐章的所有主题,然后才让《欢乐颂》登场。
+  听懂了开头那段「否定」,才算听懂了贝多芬的野心:器乐不够了,必须请人类开口。
+  入门者第一次听,请给足一小时十分钟,中途不要暂停——第三乐章的「阶梯」
+  只有人声的终曲才配得上。
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Karajan%20Beethoven%20Symphony%20No%209
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=35381096
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Karajan%20Beethoven%20Symphony%209
+    verified: false

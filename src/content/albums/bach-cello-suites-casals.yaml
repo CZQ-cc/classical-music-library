@@ -1,0 +1,33 @@
+title: "巴赫:无伴奏大提琴组曲全集"
+title_en: "Bach: The Cello Suites"
+cover: /covers/bach-cello-suites-casals.jpg
+label: EMI Classics
+release_year: 1939
+recordings:
+  - bach-cello-suites-casals-1936
+rating: 9.6
+essence: 史上第一套组曲全集——录音史上最著名的抢救性录制。
+featured: true
+tags: [巴洛克, 传奇名盘, 大提琴]
+notes: 历史录音,音质受年代限制,但琴声的歌唱性穿透一切。
+background: |
+  卡萨尔斯十三岁发现这套总谱,苦练十二年后才敢公开演奏;他又犹豫了三十五年,
+  才终于在 1936–39 年间分批录完史上第一套全集(巴黎/伦敦/柏林,78 转唱片)。
+  《留声机》回顾这段历史时指出:在他之前,组曲被视为练习曲,无人完整演出——
+  这套录音是把巴赫送进音乐厅核心曲目的里程碑文献。
+editorial: |
+  历史录音的正确听法:先接受底噪与窄频宽,然后你会发现琴声的歌唱穿透了所有技术局限。
+  第一组曲前奏曲是入口(两分钟,人人能记住);第五组曲是深渊(c 小调的赋格与独白)。
+  听过卡萨尔斯,再去听罗斯特罗波维奇、马友友,你会明白每一位大提琴家
+  都是站在他的肩膀上说话。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Casals%20Bach%20Cello%20Suites
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=1974641
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Casals%20Bach%20Cello%20Suites
+    verified: false

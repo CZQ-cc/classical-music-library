@@ -9,24 +9,51 @@ sound_notes: |
   噪音极低、音色温润的 RCA 录音恰好成全了他的音色美学。
 guide:
   - movement: 降E大调夜曲 Op. 9 No. 2
+    key: 降E大调
+    tempo: 行板
     sections:
       - cue: 主题
         title: 一支人人能哼的歌
+        key: 降E大调
+        dynamic: p
+        contour: [45, 52, 60, 55, 62, 50, 45, 50]
+        instruments: [钢琴]
         note: 右手旋律像声乐的宣叙,左手以宽阔的琶音铺开夜色。鲁宾斯坦的秘诀是「不着急」:主题第一次出现时几乎不做任何表情,把空间留给后面的装饰。
       - cue: 装饰变奏
         title: 歌唱的华彩
+        key: 降E大调
+        dynamic: p
+        contour: [50, 58, 66, 72, 66, 58, 52, 58]
+        instruments: [钢琴]
         note: 每次主题归来,右手都添一层花腔——像美声歌剧里的装饰变奏。注意鲁宾斯坦如何让快速音群「唱」起来而非「跑」起来。
       - cue: 尾声
         title: 一声晚安
+        key: 降E大调
+        dynamic: pp
+        contour: [48, 50, 46, 42, 38]
+        instruments: [钢琴]
         note: 最后的八度与终止式像轻轻合上窗帘。整曲三分多用,却没有一秒钟的多愁善感——这就是「健康的肖邦」。
   - movement: c小调夜曲 Op. 48 No. 1
+    key: c小调
     sections:
       - cue: 开头
         title: 圣咏般的主题
+        key: c小调
+        dynamic: p
+        contour: [42, 45, 48, 46, 44, 42]
+        instruments: [钢琴]
         note: 与 Op. 9 No. 2 完全另一个世界:左手改成进行曲式的和弦,旋律像教堂里的独唱。鲁宾斯坦把音量压得很低,肃穆感反而更强。
       - cue: 中段
         title: 惊醒的双八度
+        key: c小调
+        dynamic: f
+        contour: [30, 72, 35, 76, 40, 82]
+        instruments: [钢琴]
         note: 双八度上行像警报拉响,随后是一段真正的歌剧性宣叙——夜曲罕见地有了戏剧的重量。
       - cue: 再现
         title: 回不去的平静
+        key: c小调
+        dynamic: p
+        contour: [42, 44, 42, 40, 38, 36]
+        instruments: [钢琴]
         note: 主题归来,但左手织体更厚了。听过中段之后再听这段「平静」,你会听见克制下的颤抖。

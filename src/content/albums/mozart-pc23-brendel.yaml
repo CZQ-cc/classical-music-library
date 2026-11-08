@@ -1,0 +1,30 @@
+title: "莫扎特:第 23 & 24 钢琴协奏曲"
+title_en: "Mozart: Piano Concertos Nos. 23 & 24"
+cover: /covers/mozart-pc23-brendel.jpg
+label: Philips
+release_year: 1983
+recordings:
+  - mozart-pc23-brendel-marriner-1983
+rating: 8.9
+essence: 布伦德尔的智慧莫扎特,圣马丁的丝绸弦乐,Philips 金榜录音。
+tags: [协奏曲, 钢琴作品]
+background: |
+  1983 年,布伦德尔与马里纳、圣马丁学院乐团为 Philips 录制莫扎特第 23、24 钢琴协奏曲,
+  是他们莫扎特协奏曲全集工程中的名篇。布伦德尔的莫扎特以「智慧」著称:
+  从不表演,只在结构里歌唱;圣马丁的弦乐则提供英式室内乐般的透明质感。
+editorial: |
+  第 23 的正确听法是注意「明暗的诚实」:第一乐章明朗如春,第二乐章却坠入
+  莫扎特钢协中唯一的小调慢乐章(升 f 小调)——深秋、微凉、欲言又止,
+  然后末乐章把阴云一扫而空。这种「不掩饰也不煽情」正是莫扎特式幸福的定义。
+  布伦德尔与圣马丁让钢琴与木管像室内乐三重奏那样对话,别错过。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Brendel%20Marriner%20Mozart%20Piano%20Concertos
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Brendel%20Marriner%20Mozart%20Piano%20Concertos&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Brendel%20Marriner%20Mozart%20Piano%20Concertos
+    verified: false

@@ -1,0 +1,32 @@
+title: "莫扎特:安魂曲"
+title_en: "Mozart: Requiem"
+cover: /covers/mozart-requiem-bohm.jpg
+label: Deutsche Grammophon
+release_year: 1971
+recordings:
+  - mozart-requiem-bohm-1971
+rating: 9.2
+essence: 写给自己的告别,伯姆以大教堂般的庄重托住它。
+featured: true
+tags: [合唱圣殿, 德奥传统, 传奇名盘]
+background: |
+  1971 年 1 月,伯姆与维也纳爱乐、维也纳国立歌剧院合唱团录制《安魂曲》——
+  他一生莫扎特诠释的顶点之一。《留声机》评价这一版「合唱音色如光,乐队音响如山岳」,
+  DG 的录音让它成为权威目录中长销不衰的经典(近年又以「Original Source」黑胶系列
+  重返发烧视野)。也有乐评(如 MusicWeb)批评其速度过于沉重——这恰恰说明
+  伯姆选择的是「安魂弥撒」的礼仪庄严,而非歌剧化的煽情。
+editorial: |
+  听安魂曲前的正确姿势:知道这是莫扎特未完成的绝笔,然后忘掉八卦。
+  「震怒之日」是全曲的雷霆——请把音量开到正常偏大,那是「末日图景」应有的规模;
+  「落泪之日」则相反,是莫扎特亲手写下的最后十二小节,音乐在「阿门」前
+  骤然停止,像一封没写完的信。伯姆版的好处是:他从不替莫扎特哭,他让音乐自己落泪。
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Bohm%20Mozart%20Requiem
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=1856261
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Bohm%20Mozart%20Requiem
+    verified: false

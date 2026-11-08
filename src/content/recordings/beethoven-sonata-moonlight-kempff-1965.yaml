@@ -9,26 +9,54 @@ sound_notes: |
   音乐在克制的句法里自己发光——这是德奥钢琴学派「让音乐说话」的范本。
 guide:
   - movement: 第一乐章:持续的柔板
+    key: 升c小调
+    tempo: 持续的柔板
     sections:
       - cue: 开头三连音
         title: 水面的涟漪
+        key: 升c小调
+        dynamic: pp
+        contour: [60, 46, 52, 40, 48, 42, 46]
+        instruments: [钢琴]
         note: 右手三连音均匀得像呼吸,旋律浮在其上。肯普夫弹得比多数人想像的更「平」——不是月光如洗的浪漫画面,而是一种克制的心事。注意低音声部缓慢下行的八度:阴影在水底移动。
       - cue: 中段
         title: 一次叹息
+        key: 升c小调
+        dynamic: p
+        contour: [55, 62, 68, 60, 52]
+        instruments: [钢琴]
         note: 旋律提高八度,装饰音像欲言又止。全曲没有一处渐强超过「 mezzo voce」(半声)——贝多芬标注的宁静,比激情更难。
   - movement: 第二乐章:小快板
+    key: 降D大调
     sections:
       - cue: 全章
         title: 两个深渊之间的小花
+        key: 降D大调
+        dynamic: p
+        contour: [40, 52, 45, 58, 50, 44, 48]
+        instruments: [钢琴]
         note: 李斯特的比喻。降D大调的舞曲轻盈得近乎玩笑,中段的田园旋律像开了一扇小窗。肯普夫把它弹成真正「轻盈」的间奏——为终曲蓄力。
   - movement: 第三乐章:激动的急板
+    key: 升c小调
     sections:
       - cue: 开头琶音
         title: 风暴破门
+        key: 升c小调
+        dynamic: f
+        contour: [22, 45, 68, 88, 48, 70, 88]
+        instruments: [钢琴]
         note: 与第一乐章同样的升c小调、同样的三连音基因——但这次从水底翻到了浪尖。左手十六分音符与右手三连音的追逐是技术难点,肯普夫的速度并不极限,但清晰度惊人:每个音都有名字。
       - cue: 第二主题
         title: 短暂的抒情
+        key: 升c小调
+        dynamic: p
+        contour: [68, 58, 62, 52, 46]
+        instruments: [钢琴]
         note: 高音区一句咏叹——风暴中心的眼睛。它只出现片刻,就被音流卷走。
       - cue: 尾声
         title: 三个沉重的和弦
+        key: 升c小调
+        dynamic: ff
+        contour: [55, 20, 55, 18, 12]
+        instruments: [钢琴]
         note: 结尾没有胜利,只有三记低音锤击。肯普夫的处理像轻叹一声后关上门——听完全曲,再回头听第一乐章,你会明白什么叫「蓄力」。

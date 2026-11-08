@@ -1,0 +1,81 @@
+works: [beethoven-symphony-9]
+conductor: herbert-von-karajan
+orchestra: berliner-philharmoniker
+soloists:
+  - person: monteverdi-choir
+    role: 合唱团(维也纳歌唱协会合唱团)
+recording_year: "1961–62"
+venue: 耶稣基督教堂,柏林
+style_tags: [厚重宏大, 理想速度, 交响曲全集明珠]
+sound_notes: |
+  1963 年全集的收官之作:DG 立体声早期的宽广音场让人声与乐队各得其所。
+  《留声机》在「史上最伟大贝九」专题中收录此版,称其速度理想、暗流涌动。
+guide:
+  - movement: 第一乐章:不太快、略庄严的快板
+    key: d小调
+    sections:
+      - cue: 开头
+        title: 宇宙初开
+        key: d小调
+        dynamic: pp
+        contour: [15, 45, 30, 55, 40, 65]
+        instruments: [弦乐, 定音鼓]
+        note: 空白五度与碎片动机从虚无中凝聚成第一主题——像星云聚成恒星。卡拉扬的开场比多数人慢半拍,把「从无到有」的过程放到最大。
+      - cue: 再现部前
+        title: 定音鼓的银河
+        key: d小调
+        dynamic: f
+        contour: [50, 70, 55, 75, 60, 80]
+        instruments: [定音鼓, 全体乐队]
+        note: 整个展开部像一场星际风暴,定音鼓是它的引力中心。
+  - movement: 第二乐章:谐谑曲
+    key: d小调
+    sections:
+      - cue: 定音鼓独奏
+        title: 前所未有的开场
+        key: a小调
+        dynamic: ff
+        contour: [60, 15, 60, 15, 62, 12]
+        instruments: [定音鼓, 弦乐]
+        note: 定音鼓在整小节休止中孤零零敲出八度——交响曲史上第一次由定音鼓决定乐章开场。木管的尖啸随后劈下,节奏机器启动。
+  - movement: 第三乐章:如歌的柔板
+    key: 降B大调
+    sections:
+      - cue: 双主题变奏
+        title: 离天堂最近的十一个分钟
+        key: 降B大调
+        dynamic: p
+        contour: [55, 60, 50, 62, 55, 65, 58, 48]
+        instruments: [木管, 弦乐]
+        note: 两个主题交替变奏,像两片云在天上慢慢换位。卡拉扬的弦乐在这里最像天鹅绒——全乐章没有一处急躁,是通往人声的漫长阶梯。
+  - movement: 第四乐章:终曲「欢乐颂」
+    key: D大调
+    sections:
+      - cue: 开头
+        title: 否定一切的开场
+        key: d小调
+        dynamic: ff
+        contour: [70, 25, 70, 25, 72, 22]
+        instruments: [全体乐队]
+        note: 前三乐章的主题依次登场,又依次被宣叙调否定——贝多芬在用音乐写「都还不够」。低音提琴的大胡子宣叙第一次响时,交响曲的历史被折成两半。
+      - cue: 「欢乐颂」主题
+        title: 人人能哼的歌
+        key: D大调
+        dynamic: f
+        contour: [40, 50, 60, 65, 60, 50, 40, 30]
+        instruments: [低音提琴→大提琴→中提琴→小提琴→全体乐队]
+        note: 主题先由最低的大提琴奏出,再一层层向上传递,直到全乐队——「欢乐」从深渊里一层层爬上来,这正是整部交响曲的意义。
+      - cue: 合唱进入
+        title: 「哦,朋友们,不要这样的声音!」
+        key: D大调
+        dynamic: ff
+        contour: [30, 85, 35, 88, 40, 90]
+        instruments: [合唱团, 独唱们, 全体乐队]
+        note: 男中音的宣叙像一声令下,「欢乐颂」从此交给人类的声音。合唱的巨浪、土耳其进行曲的军乐、庄严的「亿万人民拥抱吧」——终曲是四场音乐会叠在一起。
+      - cue: 结尾
+        title: 双重加速的狂欢
+        key: D大调
+        dynamic: ff
+        contour: [60, 80, 95, 98, 100]
+        instruments: [合唱团, 全体乐队]
+        note: 结尾两段加速把速度推到极限,「欢乐,美丽的神圣火花」在狂欢中砸下最后一块基石。卡拉扬的极限而不散架,是这版被反复称道的功力。

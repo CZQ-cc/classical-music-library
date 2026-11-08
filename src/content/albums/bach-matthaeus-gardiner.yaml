@@ -1,0 +1,32 @@
+title: "巴赫:马太受难曲"
+title_en: "Bach: St Matthew Passion"
+cover: /covers/bach-matthaeus-gardiner.jpg
+label: Archiv Produktion
+release_year: 1989
+recordings:
+  - bach-matthaeus-gardiner-1988
+rating: 9.5
+essence: 本真演奏的旗舰级受难曲,《留声机》认证的戏剧性杰作。
+featured: true
+tags: [巴洛克, 本真演奏, 合唱圣殿]
+background: |
+  1988 年,加德纳率蒙特威尔第合唱团与英国巴洛克独奏家乐团录制《马太受难曲》,
+  云集 Barbara Bonney、Anthony Rolfe Johnson 等一线独唱。
+  《留声机》的评论形容这一版「炽热而具有鲜活的戏剧感」,并指出加德纳
+  并未刻意模仿巴赫时代的演出条件,而是以古乐器的透明质感拍出受难故事的「电影感」——
+  它被广泛视为本真乐器演出的龙头版本。
+editorial: |
+  三个小时是门槛,但结构其实是电影式的:双合唱团像两个新闻摄制组同时在场,
+  福音史家是旁白,众赞歌是观众的弹幕。第一次听不必求全,先把开场合唱
+  「来吧,儿女们」与终曲「我们含泪安睡」连起来听——受难曲的第一句与最后一句,
+  是对同一群儿女说的。受难周(复活节前一周)聆听,仪式感加倍。
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Gardiner%20St%20Matthew%20Passion
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=35023998
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Gardiner%20St%20Matthew%20Passion
+    verified: false

@@ -1,0 +1,50 @@
+works: [mozart-clarinet-concerto]
+conductor: neville-marriner
+orchestra: academy-of-st-martin-in-the-fields
+soloists:
+  - person: karl-leister
+    role: 单簧管
+recording_year: "1989"
+style_tags: [圆润如歌, 室内乐式伴奏, 天鹅之歌]
+sound_notes: |
+  莱斯特的音色像加了绒布的欧珀:低音区温厚,最高音也不刺耳。
+  马里纳与圣马丁的伴奏明亮如室内乐,恰是这首透明之作需要的。
+guide:
+  - movement: 第一乐章:快板
+    key: A大调
+    sections:
+      - cue: 开头
+        title: 像散步一样开场
+        key: A大调
+        dynamic: p
+        contour: [45, 52, 48, 55, 50, 46, 50]
+        instruments: [乐队]
+        note: 弦乐轻声陈述主题,没有戏剧,没有宣言——莫扎特晚年的从容。单簧管进入时像一位老友走进房间。
+      - cue: 展开部
+        title: 单簧管的低音区
+        title_note: ""
+        key: A大调
+        dynamic: p
+        contour: [35, 30, 38, 28, 34, 26]
+        instruments: [单簧管]
+        note: 莱斯特展示单簧管最低音区的哑光音色——大多数演奏者回避的危险区域,他弹得像丝绒。
+  - movement: 第二乐章:柔板
+    key: D大调
+    sections:
+      - cue: 全乐章
+        title: 电影让它不朽,音乐让它永恒
+        key: D大调
+        dynamic: pp
+        contour: [58, 54, 60, 50, 44, 38, 34]
+        instruments: [单簧管, 弦乐]
+        note: 《走出非洲》把它带给了全世界,但它本来的身份是莫扎特绝笔年月的歌唱——单簧管一口气唱出的长弧线,像叹息被拉成歌。莱斯特的呼吸控制让整段几乎不换气。
+  - movement: 第三乐章:回旋曲
+    key: A大调
+    sections:
+      - cue: 主题
+        title: 最后的嬉游
+        key: A大调
+        dynamic: p
+        contour: [42, 58, 46, 62, 50, 55]
+        instruments: [单簧管, 乐队]
+        note: 回旋曲的轻快冲淡一切哀愁——莫扎特式的告别从不煽情。结尾单簧管在最高音区轻巧收束,像挥手,不像落泪。

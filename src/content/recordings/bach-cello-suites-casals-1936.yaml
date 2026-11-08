@@ -1,0 +1,45 @@
+works: [bach-cello-suites]
+soloists:
+  - person: pablo-casals
+    role: 大提琴
+recording_year: "1936–39"
+venue: 巴黎/伦敦/柏林(分批录制)
+style_tags: [开山鼻祖, 歌唱般的运弓, 传奇音质]
+sound_notes: |
+  78 转时代的历史录音:底噪明显、频宽有限,但琴声的歌唱与生命力穿透一切技术局限。
+  它是史上第一套组曲全集——录音史最著名的「抢救性录制」之一。
+guide:
+  - movement: 第一组曲 G大调
+    key: G大调
+    sections:
+      - cue: 前奏曲
+        title: 最著名的两分钟
+        key: G大调
+        dynamic: p
+        contour: [30, 35, 40, 55, 70, 55, 40, 65, 45]
+        instruments: [大提琴]
+        note: 琶音如涟漪层层推开,结尾突然站上高音的顶点。卡萨尔斯的弓子在历史的底噪里依然像在歌唱——先听这条线,再忘掉年代。
+      - cue: 阿勒芒德–吉格
+        title: 舞蹈的链条
+        key: G大调
+        dynamic: p
+        contour: [40, 55, 45, 60, 50, 58]
+        instruments: [大提琴]
+        note: 前奏曲之后是五支舞曲,一支比一支轻快。卡萨尔斯把它们弹成呼吸与步伐,而非音阶练习——这正是他对这套作品最大的历史贡献。
+  - movement: 第五组曲 c小调
+    key: c小调
+    sections:
+      - cue: 前奏曲
+        title: 深渊中的赋格
+        key: c小调
+        dynamic: f
+        contour: [30, 45, 60, 75, 60, 45, 30]
+        instruments: [大提琴]
+        note: 单件乐器上写出三声部赋格——高潮处的和声堆叠像教堂穹顶。卡萨尔斯录它时欧洲正滑向战争,这种沉重不是表演。
+      - cue: 萨拉班德
+        title: 黑夜的独白
+        key: c小调
+        dynamic: pp
+        contour: [45, 40, 35, 32, 30, 28]
+        instruments: [大提琴]
+        note: 全套组曲最内省的两分钟。每小节一个重音,像钟摆,像心跳。

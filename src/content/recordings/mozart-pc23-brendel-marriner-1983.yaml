@@ -1,0 +1,49 @@
+works: [mozart-piano-concerto-23]
+conductor: neville-marriner
+orchestra: academy-of-st-martin-in-the-fields
+soloists:
+  - person: alfred-brendel
+    role: 钢琴
+recording_year: "1983"
+style_tags: [智慧内敛, 明亮轻盈, 英式莫扎特]
+sound_notes: |
+  Philips 金榜系列的透明录音:布伦德尔的钢琴像镶在圣马丁弦乐的丝绒里,
+  木管的对话声部清清楚楚。
+guide:
+  - movement: 第一乐章:快板
+    key: A大调
+    sections:
+      - cue: 开头
+        title: 春天的宣言
+        key: A大调
+        dynamic: p
+        contour: [45, 55, 50, 60, 52, 62, 55]
+        instruments: [乐队]
+        note: 弦乐主题像一扇窗被推开。布伦德尔进入时不抢戏——他的莫扎特从不「表演」,只「说话」。
+      - cue: 展开部
+        title: 钢琴与木管的三重奏
+        key: A大调
+        dynamic: p
+        contour: [50, 44, 52, 46, 54, 48]
+        instruments: [钢琴, 长笛, 单簧管]
+        note: 圣马丁的长笛与单簧管在钢琴上方盘旋,像三位老友的下午茶。这是室内乐,不是协奏曲。
+  - movement: 第二乐章:柔板
+    key: 升f小调
+    sections:
+      - cue: 全乐章
+        title: 唯一的小调慢乐章
+        key: 升f小调
+        dynamic: pp
+        contour: [48, 42, 50, 38, 44, 32, 26]
+        instruments: [钢琴, 木管, 弦乐]
+        note: 莫扎特钢协中唯一用小调写的慢乐章——深秋,微凉,欲言又止。布伦德尔把它弹成一封没有寄出的信;圣马丁的弦乐在句尾轻轻叹息。莫扎特式忧伤的极致。
+  - movement: 第三乐章:回旋曲
+    key: A大调
+    sections:
+      - cue: 主题
+        title: 阴云散尽
+        key: A大调
+        dynamic: f
+        contour: [40, 62, 45, 65, 48, 68]
+        instruments: [钢琴, 乐队]
+        note: 回旋曲主题带着猎号般的欢腾,中段却有短暂的小调阴影掠过——然后再也不回头。布伦德尔的收束干脆利落,像合上一本好书。

@@ -1,0 +1,32 @@
+title: "贝多芬:小提琴协奏曲"
+title_en: "Beethoven: Violin Concerto"
+cover: /covers/beethoven-violin-ferras.jpg
+label: Deutsche Grammophon
+release_year: 1967
+recordings:
+  - beethoven-violin-ferras-karajan-1967
+rating: 8.9
+essence: 大教堂与火把的组合——费拉斯最燃烧的德奥演绎。
+tags: [协奏曲, 小提琴]
+notes: 收录贝多芬两首浪漫曲作耦合曲目。
+background: |
+  1967 年,法国小提琴家克里斯蒂安·费拉斯与卡拉扬、柏林爱乐录制贝多芬《小提琴协奏曲》
+  (耦合两首浪漫曲)。费拉斯是埃奈斯库的弟子,琴声炽热而高贵;
+  与卡拉扬的大教堂式乐队相遇,产生了这部作品录音史上最「燃烧」的德奥演绎之一。
+  费拉斯晚年淡出舞台、1982 年早逝,留下的录音不多而张张珍稀。
+editorial: |
+  这部协奏曲的开场是史上最著名的「非开场」:四声定音鼓轻敲,像黎明前的报时。
+  慢乐章被称为「离天堂最近的音乐」——加弱音器的弦乐铺成雾,小提琴是雾中的灯。
+  费拉斯的特别之处:他在德奥框架里跑着一匹法式的马——回旋曲装饰段的即兴感,
+  别的德奥小提琴家给不了。与施奈德汉、克莱斯勒版本对照听,收获最大。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Ferras%20Karajan%20Beethoven%20Violin%20Concerto
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=34495981
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Ferras%20Karajan%20Beethoven%20Violin%20Concerto
+    verified: false

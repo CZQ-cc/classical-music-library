@@ -1,0 +1,29 @@
+title: "巴赫:勃兰登堡协奏曲"
+title_en: "Bach: Brandenburg Concertos"
+cover: /covers/bach-brandenburg-richter.jpg
+label: Archiv Produktion
+release_year: 1968
+recordings:
+  - bach-brandenburg-richter-1968
+rating: 9.0
+essence: 「浪漫主义巴赫」的顶峰,与本真派相对的另一极。
+tags: [巴洛克, 德奥传统]
+background: |
+  1968 年,卡尔·李希特率自己创立的慕尼黑巴赫乐团为 Archiv 录制《勃兰登堡协奏曲》——
+  那是「浪漫主义巴赫」与本真派分庭抗礼的年代:厚重的弦乐、庄严的铜管、羽管键琴压在低频。
+  这一版至今被视为与之相对的「大教堂式巴赫」的顶峰,与本真派的轻盈版互为镜像。
+editorial: |
+  听这一版的正确姿势是「配对聆听」:先听李希特的第二首(高音小号如金鹰),再听本真派的同曲,
+  你会得到两种截然不同的巴赫——一位是圣殿里的,一位是庭院里的。第三首的「永动机」乐章
+  在这个厚重的乐队里像一台大理石齿轮机,那种推进感是轻装版本给不了的。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Richter%20Brandenburg%20Concertos
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/album?id=35385552
+    verified: true
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Richter%20Brandenburg%20Concertos
+    verified: false

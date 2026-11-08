@@ -10,37 +10,77 @@ sound_notes: |
   录音次年古尔德辞世,这张唱片成为他艺术生涯的句号——第一次录音是天才的宣言,最后一次是智者的遗言。
 guide:
   - movement: 咏叹调(Aria)
+    key: G大调
+    tempo: 柔板
     sections:
       - cue: 0:00
         title: 起点:一支朴素的歌曲
+        key: G大调
+        dynamic: p
+        contour: [45, 55, 65, 72, 65, 55, 48, 52]
+        instruments: [钢琴]
         note: 与 1955 年相比,1981 年的咏叹调慢了近一倍,装饰音像被逐个称量过。记住这段旋律——它将在七十分钟后原样归来,而你已不是原来的你。
   - movement: 变奏 1 – 12
+    key: G大调
     sections:
       - cue: 变奏 1
         title: 苏醒
+        key: G大调
+        dynamic: f
+        contour: [30, 50, 30, 50, 40, 60, 35, 55]
+        instruments: [钢琴]
         note: 双手交叉的跳跃带来第一阵活力。古尔德让左右手的衔接像一个人左右半脑的对话。
       - cue: 变奏 5–6
         title: 炫技与安静
+        key: G大调
+        dynamic: f
+        contour: [35, 65, 30, 62, 38, 58]
+        instruments: [钢琴]
         note: 第 5 变奏是全曲最快的时刻之一,紧接着第 6 变奏(卡农)立刻收束成走路般的从容——快与慢的哲学,古尔德的拿手好戏。
       - cue: 变奏 10(四声部赋格风)
         title: 建筑的时刻
+        key: G大调
+        dynamic: p
+        contour: [40, 50, 60, 55, 65, 50, 45]
+        instruments: [钢琴]
         note: 四个声部同时歌唱。试着只听最低的那个声部,你会发现一条独立的旋律线——这就是复调的乐趣。
   - movement: 变奏 13 – 25
     sections:
       - cue: 变奏 13
         title: 镜中的咏叹调
+        key: G大调
+        dynamic: p
+        contour: [48, 58, 66, 60, 68, 54]
+        instruments: [钢琴]
         note: 装饰华美的一曲,像咏叹调在镜中的倒影。
       - cue: 变奏 25(柔板)
         title: 黑色深渊
+        key: g小调
+        dynamic: pp
+        contour: [72, 66, 58, 50, 42, 34, 26]
+        instruments: [钢琴]
         note: 全曲情感最深处。小调、半音下行、几乎停顿的呼吸——古尔德在这里弹得极慢,像在深渊边缘逐字读完一封信。乐迷称它为整部作品的「受难曲」。
   - movement: 变奏 26 – 咏叹调返始
+    key: G大调
     sections:
       - cue: 变奏 29
         title: 摇曳的鼓点
+        key: G大调
+        dynamic: f
+        contour: [30, 48, 32, 50, 34, 52]
+        instruments: [钢琴]
         note: 低音像定音鼓一样敲打,为最后的狂欢蓄力。
       - cue: 变奏 30:集腋曲
         title: 两个民歌的玩笑
+        key: G大调
+        dynamic: f
+        contour: [40, 62, 36, 60, 42, 58, 38]
+        instruments: [钢琴]
         note: 巴赫把两首德国民歌《我已久不与你在一起》《白菜和萝卜》塞进对位里——最严密的数学里开出的玩笑。古尔德弹得眉飞色舞。
       - cue: 咏叹调返始(Aria da capo)
         title: 回到起点
+        key: G大调
+        dynamic: pp
+        contour: [45, 55, 65, 72, 65, 55, 48, 52]
+        instruments: [钢琴]
         note: 旋律原样归来,一个音都没变。但经过三十段变奏的旅程,它听起来像完全新的一支歌——「经历过一切之后的咏叹调」。许多人在这最后两分钟里安静得不敢呼吸。

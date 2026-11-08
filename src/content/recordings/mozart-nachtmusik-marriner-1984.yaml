@@ -1,0 +1,52 @@
+works: [mozart-eine-kleine-nachtmusik]
+conductor: neville-marriner
+orchestra: academy-of-st-martin-in-the-fields
+recording_year: "1984"
+style_tags: [明亮轻盈, 室内乐式合奏, 最流行的古典]
+sound_notes: |
+  《莫扎特传》电影配乐的同一班底:弦乐像上过蜡的木地板,亮而不滑。
+guide:
+  - movement: 第一乐章:快板
+    key: G大调
+    sections:
+      - cue: 开头四音
+        title: 最著名的敲门声
+        key: G大调
+        dynamic: f
+        contour: [30, 50, 65, 55, 75, 60]
+        instruments: [弦乐]
+        note: 上行四度撞击+应答,五秒内立住一个乐章——贝多芬「命运」的十八年前奏。马里纳的速度不赶,让每个「敲门」都落得清清楚楚。
+      - cue: 展开部
+        title: 半音的暗流
+        key: G大调
+        dynamic: f
+        contour: [55, 48, 58, 42, 52, 38]
+        instruments: [弦乐]
+        note: 莫扎特在展开部突然拧出一条半音下行的暗线——小夜曲也有心事,五秒钟,过去了。
+  - movement: 第二乐章:浪漫曲
+    key: C大调
+    sections:
+      - cue: 中段
+        title: 落入阴影再爬出
+        key: C大调
+        dynamic: p
+        contour: [48, 44, 40, 30, 24, 34, 44, 52]
+        instruments: [弦乐]
+        note: 歌唱的主题走到中段突然坠入 c 小调,像夜路上踩进一个水坑——然后若无其事地爬出来。十五分钟的小夜曲,藏着莫扎特的全部人生态度。
+  - movement: 第三、四乐章
+    key: G大调
+    sections:
+      - cue: 小步舞曲
+        title: 微醺的重拍
+        key: G大调
+        dynamic: f
+        contour: [50, 60, 50, 62, 52, 60]
+        instruments: [弦乐]
+        note: 传统小步舞曲的三拍子被莫扎特做出微醺的错位重音—— polite 到骨子里的幽默。
+      - cue: 终曲回旋曲
+        title: 快乐的直线
+        key: G大调
+        dynamic: f
+        contour: [45, 60, 48, 62, 50, 64, 68]
+        instruments: [弦乐]
+        note: 终曲像一条快乐的直线,一路跑到头,一个刹车都不踩。这也是整部小夜曲的气质:光。

@@ -1,0 +1,30 @@
+title: "莫扎特:弦乐小夜曲 & 夜曲"
+title_en: "Mozart: Eine kleine Nachtmusik & Serenades"
+cover: /covers/mozart-nachtmusik-marriner.jpg
+label: Philips
+release_year: 1984
+recordings:
+  - mozart-nachtmusik-marriner-1984
+rating: 8.8
+essence: 《莫扎特传》电影配乐的同一班底——史上最优雅的「流行曲」。
+tags: [室内乐, 入门首选]
+background: |
+  1984 年,马里纳与圣马丁学院乐团录制《弦乐小夜曲》等曲目——
+  正是电影《莫扎特传》(1984)配乐的同一班底。这部 K. 525 是莫扎特随手记下的
+  一首「没有理由的小夜曲」,生前未出版,如今却是世上被演奏最多的古典音乐。
+editorial: |
+  《小夜曲》是古典音乐的最佳第一口:十五分钟,四个乐章,没有一个多余的音。
+  马里纳版的妙处在细节:开头「敲门声」的每个落点都清清楚楚,
+  浪漫曲中段踩进 c 小调水坑再爬出来的过程毫不拖泥带水。
+  把它当作检验所有古典唱片音色的标准——如果小夜曲都不好听,问题一定在录音。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Marriner%20Mozart%20Eine%20kleine%20Nachtmusik
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Marriner%20Mozart%20Nachtmusik&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Marriner%20Mozart%20Nachtmusik
+    verified: false

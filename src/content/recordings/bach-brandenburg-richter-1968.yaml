@@ -1,0 +1,50 @@
+works: [bach-brandenburg-concertos]
+conductor: karl-richter
+orchestra: muenchener-bach-orchester
+recording_year: "1968"
+style_tags: [庄严恢弘, 大教堂式巴赫, 巴洛克调色板]
+sound_notes: |
+  Archiv 时代的厚重录音:羽管键琴在低频处若隐若现,铜管辉煌而不刺耳。
+  与本真派的轻盈版对照聆听,恰是「两种巴赫」的最佳教材。
+guide:
+  - movement: 第二首 F大调 BWV 1047
+    key: F大调
+    sections:
+      - cue: 开头
+        title: 高音小号的飞翔
+        key: F大调
+        dynamic: f
+        contour: [30, 55, 75, 90, 70, 90]
+        instruments: [高音小号, 长笛, 双簧管, 弦乐]
+        note: 小号在极高音区与长笛追逐,像金鹰与燕子同场竞技——李希特的版本稳如磐石,让炫技者可以放心起跳。
+      - cue: 柔板
+        title: 巴洛克的咏叹
+        key: D大调
+        dynamic: p
+        contour: [60, 55, 62, 50, 45]
+        instruments: [长笛, 双簧管, 小提琴]
+        note: 三件独奏乐器的对话,没有一件是主角,没有一件是配角。
+  - movement: 第三首 G大调 BWV 1048
+    key: G大调
+    sections:
+      - cue: 第一乐章
+        title: 永动机
+        key: G大调
+        dynamic: f
+        contour: [45, 55, 50, 60, 52, 62, 55, 60]
+        instruments: [三小提琴, 三中提琴, 三大提琴, 羽管键琴]
+        note: 九件弦乐器排成三个三重奏组,音型像齿轮咬合着向前滚动——巴赫最纯粹的「机器之美」。
+      - cue: 第二乐章
+        title: 两个和弦之谜
+        key: e小调
+        dynamic: p
+        contour: [55, 40, 30]
+        instruments: [羽管键琴]
+        note: 全乐章只有两个和弦与一条慢速的羽管键琴线——巴赫为什么只写了这么多?音乐史最著名的未解之谜。李希特让羽管键琴即兴补白。
+      - cue: 第三乐章
+        title: 舞曲的回归
+        key: G大调
+        dynamic: f
+        contour: [40, 60, 45, 62, 48, 65]
+        instruments: [弦乐]
+        note: 永动机继续转动,只是这一次换成了舞步。

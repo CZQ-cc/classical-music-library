@@ -1,0 +1,30 @@
+title: "巴赫:平均律键盘曲集 第一卷"
+title_en: "Bach: The Well-Tempered Clavier, Book 1"
+cover: /covers/bach-wtc-richter.jpg
+label: Sony Classical
+release_year: 1970
+recordings:
+  - bach-wtc-richter-1970
+rating: 9.1
+essence: 音乐「旧约圣经」的最清晰读法——每个声部都是独立的建筑。
+tags: [巴洛克, 键盘作品, 结构之美]
+background: |
+  1970 年,里赫特在萨尔茨堡与维也纳为 Sony(Columbia)录制《平均律》第一卷。
+  羽管键琴是这套作品的传统领地,而里赫特用现代钢琴的音色层次
+  把每个赋格声部雕成独立建筑——唱片史上最「清晰」的一版《平均律》。
+editorial: |
+  《平均律》的正确听法:一次只听三到四组(前奏曲+赋格各两三分钟),不要贪多。
+  从 C 大调开始(前奏曲是古诺《圣母颂》的水晶底座),到升 c 小调五声部赋格(大教堂),
+  最后以降 b 小调的半音深渊收束——里赫特让四条声部像建筑模型一样立起来,
+  你要做的只是把音量调小,然后试着只听最低的那条线。
+
+streaming_links:
+  - platform: apple-music
+    url: https://music.apple.com/cn/search?l=zh&term=Richter%20Well-Tempered%20Clavier
+    verified: false
+  - platform: netease
+    url: https://music.163.com/#/search/m/?s=Richter%20Well-Tempered%20Clavier&type=1
+    verified: false
+  - platform: qq-music
+    url: https://y.qq.com/n/ryqq/search.html?w=Richter%20Well-Tempered%20Clavier
+    verified: false

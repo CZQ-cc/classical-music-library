@@ -9,31 +9,63 @@ sound_notes: |
   穆拉文斯基不许乐队「哭出声」,这让暗流下的悲伤更刺骨。
 guide:
   - movement: 第一乐章:慢板——不太快的快板
+    key: b小调
     sections:
       - cue: 开头大管
         title: 深渊的低语
+        key: b小调
+        dynamic: pp
+        contour: [48, 44, 40, 36, 32, 28]
+        instruments: [大管, 低音提琴]
         note: 大管在低音提琴的雾中 solo——注意这个动机:它是整部交响曲的种子,末乐章它将回来收割一切。
       - cue: 快板主题
         title: 焦虑的搏动
+        key: b小调
+        dynamic: ff
+        contour: [55, 58, 62, 58, 55, 52, 60, 55]
+        instruments: [弦乐, 圆号, 定音鼓]
         note: 弦乐的切分像心脏早搏。穆拉文斯基的速度并不极端,但重音像锤子,把每个小节都钉在墙上。
   - movement: 第二乐章:稍快的行板(5/4)
+    key: D大调
     sections:
       - cue: 主题
         title: 一朵畸形的圆舞曲
+        key: D大调
+        dynamic: p
+        contour: [45, 55, 50, 60, 48, 58, 46, 56]
+        instruments: [弦乐, 圆号]
         note: 五拍子让舞步永远差半步——优雅与失衡共存。这是柴可夫斯基最「温柔」的乐章,但结尾的不安定和声提醒你:温柔也是命运的一部分。
   - movement: 第三乐章:甚快的快板
+    key: G大调
     sections:
       - cue: 全章
         title: 谐谑曲变身进行曲
+        key: G大调
+        dynamic: ff
+        contour: [45, 60, 75, 85, 92, 96]
+        instruments: [弦乐, 铜管, 定音鼓]
         note: 木管嬉戏的主题逐渐变成一场军事游行,铜管全奏时几乎所有观众都想鼓掌——穆拉文斯基把这段推向近乎失控的狂热,为末乐章的反转做准备。注意:这不是终曲,真正的结局在后面。
   - movement: 第四乐章:哀伤的柔板
+    key: b小调
     sections:
       - cue: 开头
         title: 交响曲史上最勇敢的结尾
+        key: b小调
+        dynamic: pp
+        contour: [45, 40, 35, 30, 25, 20]
+        instruments: [弦乐, 大管]
         note: 用慢板终结交响曲——前三个乐章建立的所有能量,在这里主动熄灭。弦乐的下行像人群散去。
       - cue: 中段高潮
         title: 最后的呼喊
+        key: b小调
+        dynamic: ff
+        contour: [30, 85, 28, 82, 25, 80]
+        instruments: [铜管, 全体乐队]
         note: 全乐队唯一的强奏爆发:铜管嘶吼出第一乐章的种子动机。穆拉文斯基在这里依然「不许哭」——越克制,越像人在崩塌前的最后一刻挺直了背。
       - cue: 结尾
         title: 熄灭
+        key: b小调
+        dynamic: pp
+        contour: [40, 32, 26, 20, 15, 10]
+        instruments: [低音提琴]
         note: 低音提琴分成五部,声音沉到听力边缘以下,最后几个 ppppp 和弦像炉火最后的红点。柴可夫斯基在首演九天后去世。听这段时,请把音量开大——安静是这部作品最后的声音。
