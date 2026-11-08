@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// 上线 Cloudflare Pages 后替换为实际域名
+// 上线 Cloudflare Workers 静态资产,正式域名
 export default defineConfig({
-  site: 'https://classical-music-library.pages.dev',
+  site: 'https://classical-music-library.zq295349287.workers.dev',
   build: {
     inlineStylesheets: 'auto',
   },
