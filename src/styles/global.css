@@ -1,26 +1,55 @@
 /* ============================================================
    聆听经典 · The Art of Listening
-   高端音乐杂志设计系统:米白纸张、墨黑正文、金色点缀、衬线标题
-   不外链任何 Web 字体(大陆访问),全部使用系统字体栈
+   双主题设计系统:
+   「夜馆」dark —— 黑底高端音乐杂志 × 数字唱片馆(默认)
+   「纸页」paper —— 米白纸张阅读风
+   两主题共用同一套组件与布局,仅色彩变量不同。
+   不外链任何 Web 字体(大陆访问),全部使用系统字体栈。
    ============================================================ */
 
-:root {
-  /* 色彩 */
-  --paper: #f6f3ec; /* 纸张米白 */
-  --card: #fffdf8; /* 卡片底 */
-  --ink: #1d1a15; /* 墨黑 */
-  --ink-soft: #46413a; /* 次级文字 */
-  --muted: #8a8478; /* 弱化文字 */
-  --line: #ddd5c2; /* 分隔线 */
-  --gold: #9a7b3f; /* 金色点缀 */
+html {
+  /* 默认主题:夜馆(防闪烁脚本也会显式设置) */
+  --paper: #0b0a09; /* 背景 */
+  --card: #14120f; /* 卡片 */
+  --ink: #f2efe9; /* 主文字 */
+  --ink-soft: #cfc9bf; /* 次级文字 */
+  --muted: #8a847a; /* 弱化文字 */
+  --line: rgba(255, 255, 255, 0.09); /* 分隔线 */
+  --gold: #c2a878; /* 金色点缀 */
+  --gold-soft: #8f7a52; /* 金色弱边 */
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.55);
+  --header-bg: rgba(11, 10, 9, 0.92); /* 页眉/底部条 */
+  --bg-grad: none; /* 背景纹理 */
+  --field-bg: rgba(255, 255, 255, 0.045); /* 输入框底 */
+  --ghost-border: rgba(255, 255, 255, 0.28); /* 幽灵按钮边 */
+  --glow: rgba(194, 168, 120, 0.16); /* 封面光晕 */
+  --guide-ink: #d8d2c6; /* 图解轮廓线 */
+  --track-bg: rgba(255, 255, 255, 0.12); /* 指数进度槽 */
+
+  color-scheme: dark;
+}
+
+html[data-theme='paper'] {
+  --paper: #f6f3ec;
+  --card: #fffdf8;
+  --ink: #1d1a15;
+  --ink-soft: #46413a;
+  --muted: #8a8478;
+  --line: #ddd5c2;
+  --gold: #9a7b3f;
   --gold-soft: #c2a878;
   --shadow: 0 1px 2px rgba(40, 32, 12, 0.05), 0 10px 30px rgba(60, 50, 20, 0.08);
+  --shadow-hover: 0 2px 4px rgba(40, 32, 12, 0.06), 0 16px 40px rgba(60, 50, 20, 0.14);
+  --header-bg: rgba(246, 243, 236, 0.92);
+  --bg-grad: linear-gradient(180deg, rgba(255, 253, 248, 0.6), rgba(246, 243, 236, 0));
+  --field-bg: rgba(29, 26, 21, 0.04);
+  --ghost-border: rgba(29, 26, 21, 0.35);
+  --glow: rgba(154, 123, 63, 0.1);
+  --guide-ink: #2a2620;
+  --track-bg: rgba(29, 26, 21, 0.12);
 
-  /* 字体 */
-  --serif: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif CN',
-    'STZhongsong', 'SimSun', serif;
-  --sans: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei',
-    'Segoe UI', system-ui, sans-serif;
+  color-scheme: light;
 }
 
 * {
@@ -39,9 +68,9 @@ body {
   line-height: 1.75;
   color: var(--ink);
   background: var(--paper);
-  /* 纸张质感:极淡的纹理方向渐变 */
-  background-image: linear-gradient(180deg, rgba(255, 253, 248, 0.6), rgba(246, 243, 236, 0));
+  background-image: var(--bg-grad);
   min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, h4 {
@@ -49,6 +78,13 @@ h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.4;
   color: var(--ink);
+}
+
+:root {
+  --serif: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif CN',
+    'STZhongsong', 'SimSun', serif;
+  --sans: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei',
+    'Segoe UI', system-ui, sans-serif;
 }
 
 a {
@@ -78,7 +114,7 @@ img {
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: rgba(246, 243, 236, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
@@ -120,6 +156,7 @@ img {
   display: flex;
   gap: 26px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .site-nav a {
@@ -131,6 +168,30 @@ img {
 }
 
 .site-nav a:hover {
+  color: var(--gold);
+}
+
+/* ---------- 主题切换 ---------- */
+
+.theme-toggle {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: var(--gold);
   color: var(--gold);
 }
 
@@ -184,11 +245,12 @@ img {
   box-shadow: var(--shadow);
 }
 
-/* 版式占位封面:LP 唱片封套式内框 + 厂牌色带 */
+/* 版式占位封面:LP 唱片封套式内框 + 厂牌色带。
+   封套恒为浅色「实物」,文字固定深色,不随主题翻转 */
 .cover-ph {
   aspect-ratio: 1 / 1;
   background: linear-gradient(160deg, #fbf9f2 0%, #efe9d8 100%);
-  border: 1px solid var(--line);
+  border: 1px solid #ddd5c2;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
@@ -209,7 +271,7 @@ img {
   font-size: 9px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: #46413a;
 }
 
 .cover-ph .cover-title {
@@ -217,18 +279,19 @@ img {
   font-size: clamp(17px, 4.5cqw, 26px);
   font-weight: 700;
   line-height: 1.4;
+  color: #1d1a15; /* 固定深色:封套恒浅底 */
   container-type: inline-size;
 }
 
 .cover-ph .cover-artist {
   font-size: 11.5px;
-  color: var(--muted);
+  color: #8a8478;
   line-height: 1.5;
 }
 
 .cover-ph .cover-band {
   height: 4px;
-  background: var(--band, var(--gold));
+  background: var(--band, #9a7b3f);
   margin-top: 10px;
 }
 
@@ -261,7 +324,7 @@ img {
 .album-card:hover .cover,
 .album-card:hover .cover-ph {
   transform: translateY(-4px);
-  box-shadow: 0 2px 4px rgba(40, 32, 12, 0.06), 0 16px 40px rgba(60, 50, 20, 0.14);
+  box-shadow: var(--shadow-hover);
 }
 
 .album-card .ac-label {
@@ -436,50 +499,6 @@ blockquote.pull-quote cite {
   font-weight: 700;
 }
 
-/* ---------- 时间轴(聆听指南) ---------- */
-
-.guide-movement {
-  margin-bottom: 36px;
-}
-
-.guide-movement h3 {
-  font-size: 20px;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--line);
-}
-
-.guide-row {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 16px;
-  padding: 12px 0;
-  border-bottom: 1px dashed var(--line);
-}
-
-.guide-row:last-child {
-  border-bottom: none;
-}
-
-.guide-cue {
-  font-family: var(--serif);
-  font-weight: 700;
-  color: var(--gold);
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-.guide-note {
-  font-size: 14.5px;
-  color: var(--ink-soft);
-}
-
-.guide-note .gt {
-  font-weight: 600;
-  color: var(--ink);
-  margin-right: 6px;
-}
-
 /* ---------- 页脚 ---------- */
 
 .site-footer {
@@ -522,6 +541,28 @@ blockquote.pull-quote cite {
   color: var(--ink-soft);
   border-radius: 999px;
   letter-spacing: 0.06em;
+}
+
+/* ---------- Pagefind 搜索 UI 主题适配 ---------- */
+
+html[data-theme='dark'] {
+  --pagefind-ui-text: #f2efe9;
+  --pagefind-ui-background: #14120f;
+  --pagefind-ui-primary: #c2a878;
+  --pagefind-ui-muted: #8a847a;
+  --pagefind-ui-border: rgba(255, 255, 255, 0.14);
+  --pagefind-ui-tag: #26221c;
+  --pagefind-ui-image-border-radius: 0;
+}
+
+html[data-theme='paper'] {
+  --pagefind-ui-text: #1d1a15;
+  --pagefind-ui-background: #fffdf8;
+  --pagefind-ui-primary: #9a7b3f;
+  --pagefind-ui-muted: #8a8478;
+  --pagefind-ui-border: #ddd5c2;
+  --pagefind-ui-tag: #efe9d8;
+  --pagefind-ui-image-border-radius: 0;
 }
 
 /* ---------- 响应式 ---------- */

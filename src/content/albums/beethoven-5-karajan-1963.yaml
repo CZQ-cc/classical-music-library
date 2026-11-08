@@ -1,5 +1,6 @@
 title: 贝多芬:第五&第六交响曲
 title_en: "Beethoven: Symphonies Nos. 5 & 6"
+cover: /covers/beethoven-5-karajan-1963.jpg
 label: Deutsche Grammophon
 release_year: 1963
 recordings:
@@ -21,8 +22,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Karajan%20Beethoven%20Symphony%205
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Karajan%20Beethoven%205&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=3170490
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Karajan%20Beethoven%205
     verified: false

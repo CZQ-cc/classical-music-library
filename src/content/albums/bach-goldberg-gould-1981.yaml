@@ -1,5 +1,6 @@
 title: 巴赫:哥德堡变奏曲(1981)
 title_en: "Bach: Goldberg Variations (1981)"
+cover: /covers/bach-goldberg-gould-1981.jpg
 label: CBS Masterworks
 release_year: 1982
 recordings:
@@ -23,8 +24,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Glenn%20Gould%20Goldberg%20Variations%201981
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Glenn%20Gould%20Goldberg%201981&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=1655318
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Glenn%20Gould%20Goldberg%201981
     verified: false

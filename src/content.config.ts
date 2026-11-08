@@ -26,7 +26,9 @@ const composers = defineCollection({
     period: z.enum(['baroque', 'classical', 'romantic', 'late-romantic', 'modern']),
     birth: z.string(),
     death: z.string().optional(),
-    monogram: z.string().max(2), // 版式头像(姓氏首字)
+    monogram: z.string().max(2), // 版式头像(姓氏首字),无肖像图时回退用
+    portrait: z.string().optional(), // 肖像图路径,如 /portraits/<slug>.jpg(须为公有领域)
+    portrait_credit: z.string().optional(), // 肖像来源说明
     intro: z.string(),
   }),
 });
@@ -75,11 +77,18 @@ const recordings = defineCollection({
       .array(
         z.object({
           movement: z.string(),
+          key: z.string().optional(), // 乐章调性,如 "c小调"
+          tempo: z.string().optional(), // 乐章速度
+          duration: z.string().optional(), // 参考时长
           sections: z.array(
             z.object({
               cue: z.string(), // 时间点或结构位置,如 "0:00" / "展开部"
               title: z.string(),
               note: z.string(),
+              key: z.string().optional(), // 段落调性 → 彩色圆盘
+              dynamic: z.string().optional(), // 力度标记,如 p / ff
+              contour: z.array(z.number()).optional(), // 旋律轮廓(0-100,越高音越高) → 胶囊内折线
+              instruments: z.array(z.string()).optional(), // 主要乐器声部 → 编号标注
             }),
           ),
         }),

@@ -1,5 +1,6 @@
 title: 柴可夫斯基:第四、五、六交响曲「悲怆」
 title_en: "Tchaikovsky: Symphonies Nos. 4, 5 & 6 \"Pathétique\""
+cover: /covers/tchaikovsky-4-6-mravinsky.jpg
 label: Deutsche Grammophon
 release_year: 1961
 recordings:
@@ -25,8 +26,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Mravinsky%20Tchaikovsky%20Symphonies
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Mravinsky%20Tchaikovsky&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=34479335
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Mravinsky%20Tchaikovsky
     verified: false

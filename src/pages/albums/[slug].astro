@@ -158,27 +158,24 @@ const paras = (s) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
       ))}
     </div>
 
-    <!-- ⑤ 聆听指南(时间轴绑定具体录音) -->
+    <!-- ⑤ 聆听指南(预览卡 → 独立图解页) -->
     {recs.some((r) => r.data.guide.length > 0) && (
       <>
         <SectionTitle zh="聆听指南" en="Listening Guide" />
-        <p class="guide-bind">以下时间轴与段落说明均针对本专辑的具体录音版本,不可直接套用于其他版本。</p>
-        {recs.filter((r) => r.data.guide.length > 0).map((r) => (
-          <div style="margin-bottom:48px">
-            {recs.length > 1 && <h3 style="font-size:18px;margin-bottom:18px">{lineups[recs.indexOf(r)]}</h3>}
-            {r.data.guide.map((m) => (
-              <div class="guide-movement">
-                <h3>{m.movement}</h3>
-                {m.sections.map((s) => (
-                  <div class="guide-row">
-                    <div class="guide-cue">{s.cue}</div>
-                    <div class="guide-note"><span class="gt">{s.title}</span>{s.note}</div>
-                  </div>
-                ))}
+        <div class="guide-preview">
+          {recs.filter((r) => r.data.guide.length > 0).map((r) => (
+            <div class="gp-item">
+              <div>
+                <div class="gp-lineup">{lineups[recs.indexOf(r)]}</div>
+                <p class="gp-note">
+                  图解式分乐章指南({r.data.guide.length} 个乐章):调性圆盘 · 主题旋律轮廓 · 力度标记 · 乐器声部。
+                  时间轴绑定本录音,不可套用于其他版本。
+                </p>
               </div>
-            ))}
-          </div>
-        ))}
+              <a class="btn" href={`/guides/${r.id}/`}>进入完整聆听指南 <span class="platform-en">Guide</span></a>
+            </div>
+          ))}
+        </div>
       </>
     )}
 
@@ -281,12 +278,30 @@ const paras = (s) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
     flex-wrap: wrap;
     gap: 6px 18px;
   }
-  .guide-bind {
-    font-size: 13px;
+  .guide-preview {
+    display: grid;
+    gap: 16px;
+  }
+  .gp-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .gp-lineup {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .gp-note {
+    font-size: 13.5px;
     color: var(--muted);
-    margin-bottom: 24px;
-    border-left: 3px solid var(--gold-soft);
-    padding-left: 12px;
+    margin-top: 6px;
+    max-width: 520px;
   }
   .chip {
     margin-right: 8px;

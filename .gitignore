@@ -20,3 +20,6 @@ src/content/_drafts/
 
 # ZCode 会话文件
 .zcode/
+
+# AI 生图临时脚本(含密钥,不入库)
+src/content/_ai/

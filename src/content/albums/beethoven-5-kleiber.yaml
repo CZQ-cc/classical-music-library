@@ -1,5 +1,6 @@
 title: 贝多芬:第五&第七交响曲
 title_en: "Beethoven: Symphonies Nos. 5 & 7"
+cover: /covers/beethoven-5-kleiber.jpg
 label: Deutsche Grammophon
 release_year: 1976
 recordings:
@@ -24,8 +25,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Carlos%20Kleiber%20Beethoven%205%207
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Carlos%20Kleiber%20Beethoven%205%207&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=152843763
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Carlos%20Kleiber%20Beethoven%205%207
     verified: false

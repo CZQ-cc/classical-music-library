@@ -23,8 +23,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Bohm%20Mozart%2040%2041
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Bohm%20Mozart%2040%2041&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=35381632
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Bohm%20Mozart%2040%2041
     verified: false

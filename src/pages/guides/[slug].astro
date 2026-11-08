@@ -1,0 +1,95 @@
+---
+/**
+ * 聆听指南页(可视化图解):每条含指南的录音一页
+ * 圆盘=调性/时间点 · 胶囊=主题旋律轮廓 · 〇=力度 · 数字=乐器声部
+ */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import GuideSpread from '../../components/GuideSpread.astro';
+import { must, recordingDetail, lineupOfRecording, albumsOfRecording } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const recs = (await getCollection('recordings')).filter((r) => r.data.guide.length > 0);
+  return recs.map((rec) => ({ params: { slug: rec.id }, props: { rec } }));
+}
+
+const { rec } = Astro.props;
+const { works } = await recordingDetail(rec);
+const lineup = await lineupOfRecording(rec);
+const composer = await must('composers', works[0].data.composer);
+const album = (await albumsOfRecording(rec.id))[0];
+const workTitles = works.map((w) => w.data.title).join(' / ');
+---
+
+<Base title={`聆听指南:${workTitles} — 聆听经典`} description={`分乐章图解式聆听指南:${workTitles},${lineup}。`}>
+  <article class="gd" style="margin-top:52px">
+    <span class="eyebrow">Listening Guide · 聆听指南</span>
+    <h1>{workTitles}</h1>
+    <p class="gd-sub">
+      <a href={`/composers/${composer.id}/`}>{composer.data.name}</a>
+      <span class="gd-sep">·</span>{lineup}
+      <span class="gd-sep">·</span>录音 {rec.data.recording_year}
+    </p>
+    <p class="gd-bind">
+      图例:彩色圆盘 = 调性 / 时间点 · 胶囊 = 主题旋律轮廓 · ◯ = 力度 · ①②③ = 乐器声部。
+      所有时间轴与段落说明均<strong>绑定上方这一录音版本</strong>,不可直接套用于其他版本。
+    </p>
+
+    <div class="gd-poster">
+      <a class="btn" href={`/guides/posters/${rec.id}.svg`} target="_blank" rel="noopener noreferrer">
+        图解海报(矢量版)<span class="platform-en">Poster</span>
+      </a>
+      <a class="btn ghost" href={`/ai-guides/${rec.id}-poster-ai.png`} target="_blank" rel="noopener noreferrer">
+        AI 图解(绘画版)<span class="platform-en">AI</span>
+      </a>
+      <span class="gd-poster-tip">矢量版可打印;AI 版为在线生图渲染。悬停胶囊可播放轮廓。</span>
+    </div>
+
+    <GuideSpread rows={[{ rec, lineup }]} />
+
+    <div class="gd-links">
+      {album && <a class="btn ghost" href={`/albums/${album.id}/`}>返回所属唱片</a>}
+      <a class="btn ghost" href={`/works/${works[0].id}/`}>作品与版本比较</a>
+      <a class="btn ghost" href={`/guides/posters/${rec.id}.svg`} target="_blank" rel="noopener noreferrer">下载图解海报</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .gd h1 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    margin: 4px 0 6px;
+  }
+  .gd-sub {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .gd-sep {
+    color: var(--muted);
+    margin: 0 8px;
+  }
+  .gd-bind {
+    font-size: 13px;
+    color: var(--muted);
+    border-left: 3px solid var(--gold-soft);
+    padding-left: 12px;
+    margin: 18px 0 24px;
+    max-width: 680px;
+  }
+  .gd-poster {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .gd-poster-tip {
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .gd-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 48px;
+  }
+</style>

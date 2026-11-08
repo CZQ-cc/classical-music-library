@@ -1,5 +1,6 @@
 title: 德沃夏克:b小调大提琴协奏曲(含洛可可变奏曲)
 title_en: "Dvořák: Cello Concerto & Tchaikovsky: Rococo Variations"
+cover: /covers/dvorak-cello-rostropovich.jpg
 label: Deutsche Grammophon
 release_year: 1969
 recordings:
@@ -23,8 +24,8 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Rostropovich%20Karajan%20Dvorak%20Cello%20Concerto
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Rostropovich%20Dvorak%20Cello&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=35382637
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Rostropovich%20Dvorak
     verified: false

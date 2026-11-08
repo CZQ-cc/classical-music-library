@@ -1,0 +1,125 @@
+---
+/**
+ * 首页专用暗色布局:左侧边栏 + 顶部居中搜索 + 底部「本周唱片」条
+ * 视觉参考:流媒体播放器式暗色界面;其余页面仍用 Base.astro 杂志米白风
+ */
+import '../styles/global.css';
+import '../styles/home.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  feature?: { title: string; lineup: string; href: string; rating: number };
+}
+
+const {
+  title = '聆听经典 · The Art of Listening — 古典音乐鉴赏与唱片指南',
+  description = '以经典录音为核心的古典音乐数字图书馆:作品导读、录音版本比较、专业乐评与聆听指南。',
+  feature,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script is:inline>
+      // 防闪烁:渲染前恢复用户选择的主题(默认「夜馆」)
+      document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
+    </script>
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <a class="side-brand" href="/">
+        <span class="sb-zh">聆听经典</span>
+        <span class="sb-en">The Art of Listening</span>
+      </a>
+      <nav class="side-nav">
+        <p class="side-group">聆听</p>
+        <a href="#hero">本周唱片</a>
+        <a href="#choice">编辑精选</a>
+        <a href="#start">入门路线</a>
+        <a href="#composers">作曲家</a>
+        <p class="side-group">馆藏</p>
+        <a href="/library/">唱片馆</a>
+        <a href="/composers/">作曲家索引</a>
+        <a href="/guides/">聆听指南</a>
+        <a href="/collections/">专题</a>
+        <a href="/search/">搜索</a>
+        <a href="/about/">关于</a>
+      </nav>
+      <p class="side-foot"><ThemeToggle /><br />不存储音频,只做向导。<br />聆听请至正版平台。</p>
+    </aside>
+    <div class="sb-scrim" id="sb-scrim"></div>
+
+    <div class="stage">
+      <header class="topbar">
+        <button class="menu-btn" id="menu-btn" aria-label="打开菜单">
+          <svg width="22" height="22" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.6" fill="none">
+            <path d="M3 6h16M3 11h16M3 16h16"></path>
+          </svg>
+        </button>
+        <form class="top-search" action="/search/" method="get" role="search">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="7" cy="7" r="5"></circle>
+            <path d="M11 11l3.5 3.5"></path>
+          </svg>
+          <input type="search" name="q" placeholder="搜索作曲家、演奏家与作品" autocomplete="off" />
+        </form>
+        <a class="top-mini" href="/">聆听经典</a>
+      </header>
+
+      <main id="main">
+        <slot />
+      </main>
+    </div>
+
+    {
+      feature && (
+        <div class="now-bar">
+          <div class="nb-meta">
+            <span class="nb-label">本周唱片 · Now on Display</span>
+            <span class="nb-title">{feature.title}</span>
+            <span class="nb-lineup">{feature.lineup}</span>
+          </div>
+          <div class="nb-rating" title={`编辑推荐指数 ${feature.rating}/10`}>
+            <span class="nb-rating-label">推荐指数 {feature.rating.toFixed(1)}/10</span>
+            <span class="nb-track">
+              <span class="nb-fill" style={`width:${feature.rating * 10}%`} />
+            </span>
+          </div>
+          <a class="nb-btn" href={feature.href}>
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor">
+              <path d="M2 1l9 5-9 5z"></path>
+            </svg>
+            前往聆听
+          </a>
+        </div>
+      )
+    }
+
+    <script>
+      // 移动端侧边栏开合
+      const btn = document.getElementById('menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      const scrim = document.getElementById('sb-scrim');
+      const closeMenu = () => {
+        sidebar?.classList.remove('open');
+        scrim?.classList.remove('show');
+      };
+      btn?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+        scrim?.classList.toggle('show');
+      });
+      scrim?.addEventListener('click', closeMenu);
+      sidebar?.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) closeMenu();
+      });
+    </script>
+  </body>
+</html>

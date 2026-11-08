@@ -1,0 +1,377 @@
+---
+/**
+ * 视觉聆听指南(参考图解式乐谱指南设计语言):
+ * 彩色圆盘 = 调性/时间点 · 彩色胶囊 = 主题与旋律轮廓线 · 小圆标 = 力度 · ①②③ = 乐器声部
+ * 旧数据(仅 cue/title/note)自动回退:圆盘显示时间点,胶囊内显示标题
+ */
+import type { CollectionEntry } from 'astro:content';
+
+interface Row {
+  rec: CollectionEntry<'recordings'>;
+  lineup: string;
+}
+
+interface Props {
+  rows: Row[];
+}
+
+const { rows } = Astro.props;
+
+// 参考图配色:红橙黄绿青蓝紫 + 藏蓝
+const PALETTE = ['#e2574c', '#e88c3a', '#f0c24b', '#7fb77e', '#58a8a2', '#5b8fd9', '#35548c', '#9a6fb0'];
+const ENUM = '①②③④⑤⑥⑦⑧';
+
+function hashColor(s: string): string {
+  let h = 0;
+  for (const ch of s) h = (h * 31 + (ch.codePointAt(0) ?? 0)) >>> 0;
+  return PALETTE[h % PALETTE.length];
+}
+
+/** contour 数组(0-100)→ SVG path d(供描边动画与游标取点) */
+function contourPath(arr: number[]): string {
+  const n = arr.length;
+  return arr
+    .map((y, i) => {
+      const x = (n === 1 ? 50 : (i * 100) / (n - 1)).toFixed(1);
+      const yv = (38 - (y * 34) / 100).toFixed(1);
+      return `${i === 0 ? 'M' : 'L'}${x},${yv}`;
+    })
+    .join(' ');
+}
+---
+
+{
+  rows.map(({ rec, lineup }) => (
+    <section class="gs-rec">
+      <h2>{lineup}</h2>
+      {rec.data.guide.map((m) => {
+        // 调性圆盘颜色按调性哈希:同调性全程同色,构成「调性地图」
+        const mvColor = hashColor(m.key ?? m.movement);
+        return (
+          <div class="gs-mv">
+            <header class="gs-mv-head">
+              <h3>{m.movement}</h3>
+              <div class="gs-badges">
+                {m.key && (
+                  <span class="gs-badge">
+                    <span class="gs-keydot" style={`background:${mvColor}`} />
+                    {m.key}
+                  </span>
+                )}
+                {m.tempo && <span class="gs-badge">{m.tempo}</span>}
+                {m.duration && <span class="gs-badge">{m.duration}</span>}
+              </div>
+            </header>
+
+            {m.sections.map((s) => {
+              const discColor = hashColor(s.key ?? '');
+              const pillColor = hashColor(s.title);
+              const hasContour = Array.isArray(s.contour) && s.contour.length > 1;
+              return (
+                <div class="gs-row">
+                  <div class="gs-disc" style={s.key ? `background:${discColor}` : ''}>
+                    {s.key ?? s.cue}
+                  </div>
+                  <div class="gs-main">
+                    <div class="gs-pillwrap">
+                      {hasContour && <span class="gs-label">{s.title}</span>}
+                      <div
+                        class={`gs-pill${hasContour ? ' gs-has-contour' : ''}`}
+                        style={`background:${pillColor}26;border-color:${pillColor}70`}
+                      >
+                        {hasContour ? (
+                          <svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                            <path
+                              class="gs-contour"
+                              d={contourPath(s.contour)}
+                              fill="none"
+                              stroke="var(--guide-ink)"
+                              stroke-width="2.4"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              class="gs-trace"
+                              d={contourPath(s.contour)}
+                              fill="none"
+                              stroke="var(--gold)"
+                              stroke-width="3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        ) : (
+                          <span class="gs-pill-text">{s.title}</span>
+                        )}
+                        {s.dynamic && <span class="gs-dyn">{s.dynamic}</span>}
+                      </div>
+                    </div>
+                    {s.instruments && s.instruments.length > 0 && (
+                      <p class="gs-inst">
+                        {s.instruments.map((n, i) => (
+                          <span class="gs-inst-chip">
+                            {ENUM[i] ?? '·'} {n}
+                          </span>
+                        ))}
+                      </p>
+                    )}
+                    <p class="gs-note">{s.note}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
+    </section>
+  ))
+}
+
+<style>
+  .gs-rec h2 {
+    font-family: var(--serif);
+    font-size: 18px;
+    margin: 0 0 26px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .gs-mv {
+    margin-bottom: 56px;
+  }
+  .gs-mv-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px 16px;
+    margin-bottom: 20px;
+  }
+  .gs-mv-head h3 {
+    font-size: 20px;
+  }
+  .gs-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .gs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .gs-keydot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .gs-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .gs-mv .gs-row:last-child {
+    border-bottom: none;
+  }
+  .gs-disc {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 999px;
+    background: #8a8478; /* 无调性信息时用中性灰 */
+    color: #fffdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 9px;
+    line-height: 1.2;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.18);
+  }
+  .gs-pillwrap {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-width: 560px;
+  }
+  .gs-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+  .gs-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 4px 22px;
+  }
+  .gs-pill svg {
+    width: 100%;
+    height: 38px;
+    display: block;
+  }
+  .gs-pill-text {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--ink);
+    padding: 7px 2px;
+  }
+  .gs-dyn {
+    position: absolute;
+    left: 10px;
+    bottom: -10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  /* 播放游标:悬停胶囊时,金色高亮段沿旋律轮廓流动(纯 CSS 动画,
+     由渲染器驱动,不依赖 rAF —— 嵌入式/节流环境下优雅退化为静态) */
+  .gs-trace {
+    stroke-dasharray: 14 calc(var(--len, 300) * 1px);
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .gs-pill.gs-has-contour {
+    cursor: crosshair;
+  }
+
+  .gs-pill.gs-has-contour.playing .gs-trace {
+    opacity: 1;
+    animation: gs-trace 2.8s linear infinite;
+  }
+
+  @keyframes gs-trace {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: calc(var(--len, 300) * -1px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gs-trace {
+      display: none;
+    }
+  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  .gs-inst {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .gs-inst-chip {
+    white-space: nowrap;
+  }
+  .gs-note {
+    margin-top: 10px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    text-align: justify;
+  }
+  @media (max-width: 640px) {
+    .gs-row {
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+    }
+    .gs-disc {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      font-size: 10.5px;
+      padding: 0 6px;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * 动态乐谱提示:
+   * 1) 轮廓线进入视口时从左向右描画(stroke-dashoffset 过渡)
+   * 2) 悬停/轻触胶囊时,金色高亮段沿轮廓循环流动(纯 CSS 动画,渲染器驱动)
+   * 不用 IntersectionObserver / requestAnimationFrame:部分嵌入式 WebView
+   * 无交互时会冻结渲染帧与 IO,滚动事件 + setTimeout 驱动更稳;
+   * CSS 动画在节流环境下自然静止,优雅退化为静态轮廓。
+   * 系统开启「减少动态」时全部禁用。
+   */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pills = [...document.querySelectorAll<HTMLElement>('.gs-pill.gs-has-contour')];
+
+  if (!reduced && pills.length > 0) {
+    // 一次性写入每条轮廓的路径长度(供 CSS 描边与游标动画取值)
+    for (const pill of pills) {
+      const path = pill.querySelector<SVGPathElement>('.gs-contour');
+      if (!path) continue;
+      pill.style.setProperty('--len', String(Math.ceil(path.getTotalLength())));
+    }
+
+    // 描画已进入视口的轮廓(滚动/缩放/初始各查一遍,触发过即标记)
+    const check = () => {
+      for (const pill of pills) {
+        if (pill.dataset.drawn) continue;
+        const r = pill.getBoundingClientRect();
+        if (r.top < innerHeight * 0.9 && r.bottom > 0) {
+          pill.dataset.drawn = '1';
+          const path = pill.querySelector<SVGPathElement>('.gs-contour');
+          if (!path) continue;
+          const len = path.getTotalLength();
+          path.style.strokeDasharray = `${len}`;
+          path.style.strokeDashoffset = `${len}`;
+          path.getBoundingClientRect(); // 强制回流,确保过渡生效
+          path.style.transition = 'stroke-dashoffset 1.4s ease';
+          path.style.strokeDashoffset = '0';
+        }
+      }
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+    setTimeout(check, 400); // 兜底:无滚动事件环境下的首屏轮廓
+
+    // 悬停/轻触:切换高亮段流动(CSS 动画)
+    for (const pill of pills) {
+      pill.addEventListener('pointerenter', () => pill.classList.add('playing'));
+      pill.addEventListener('pointerleave', () => pill.classList.remove('playing'));
+      pill.addEventListener('pointerdown', () => pill.classList.add('playing'));
+    }
+  }
+</script>

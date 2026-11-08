@@ -1,5 +1,6 @@
 title: 巴赫:哥德堡变奏曲(1955)
 title_en: "Bach: Goldberg Variations (1955)"
+cover: /covers/bach-goldberg-gould-1955.jpg
 label: Columbia
 release_year: 1956
 recordings:
@@ -22,8 +23,10 @@ streaming_links:
     url: https://music.apple.com/cn/search?l=zh&term=Glenn%20Gould%20Goldberg%20Variations%201955
     verified: false
   - platform: netease
-    url: https://music.163.com/#/search/m/?s=Glenn%20Gould%20Goldberg%201955&type=1
-    verified: false
+    url: https://music.163.com/#/album?id=3301231
+    verified: true
   - platform: qq-music
     url: https://y.qq.com/n/ryqq/search.html?w=Glenn%20Gould%20Goldberg%201955
     verified: false
+notes: 封面为 Columbia 单声道原版(ML 5060)胶片墙设计,立体声版同设计;
+  本站录音数据为 1955 年 6 月立体声 session。

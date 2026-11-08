@@ -1,0 +1,28 @@
+---
+/** 主题切换按钮:夜馆(dark)/ 纸页(paper),localStorage 持久化 */
+---
+
+<button class="theme-toggle" type="button" aria-label="切换主题色调">
+  <span class="tt-icon" aria-hidden="true">◐</span>
+  <span class="tt-label">纸页</span>
+</button>
+
+<script>
+  // 同步按钮文案:显示将切换到的主题
+  const root = document.documentElement;
+  function syncToggles() {
+    const next = root.dataset.theme === 'paper' ? '夜馆' : '纸页';
+    document.querySelectorAll('.theme-toggle .tt-label').forEach((el) => {
+      el.textContent = next;
+    });
+  }
+  syncToggles();
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'paper' ? 'dark' : 'paper';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      syncToggles();
+    });
+  });
+</script>

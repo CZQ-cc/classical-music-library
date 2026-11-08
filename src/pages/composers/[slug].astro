@@ -33,8 +33,15 @@ const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Bool
   <article style="margin-top:52px">
     <span class="eyebrow">{PERIOD_NAMES[composer.data.period]} · {composer.data.birth}–{composer.data.death ?? ''}</span>
     <div class="c-head">
-      <span class="mono">{composer.data.monogram}</span>
-      <div>
+      {composer.data.portrait ? (
+        <figure class="portrait">
+          <img src={composer.data.portrait} alt={`${composer.data.name}肖像`} />
+          {composer.data.portrait_credit && <figcaption>{composer.data.portrait_credit}</figcaption>}
+        </figure>
+      ) : (
+        <span class="mono">{composer.data.monogram}</span>
+      )}
+      <div class="c-head-text">
         <h1 style="font-size:clamp(28px,4vw,40px)">{composer.data.name}</h1>
         <p class="title-en">{composer.data.name_en}</p>
       </div>
@@ -73,8 +80,29 @@ const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Bool
 <style>
   .c-head {
     display: flex;
-    gap: 22px;
+    gap: 28px;
     align-items: center;
+  }
+  .portrait {
+    flex: none;
+    width: min(280px, 60vw);
+    margin: 0;
+  }
+  .portrait img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%; /* 肖像画通常上半部为面部,裁切保脸 */
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .portrait figcaption {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+  .c-head-text {
+    padding-bottom: 12px;
   }
   .mono {
     font-family: var(--serif);
@@ -82,6 +110,15 @@ const paras = (s: string) => s.split(/\n\s*\n/).map((p) => p.trim()).filter(Bool
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
+  }
+  @media (max-width: 640px) {
+    .c-head {
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .portrait {
+      width: 132px;
+    }
   }
   .title-en {
     color: var(--muted);

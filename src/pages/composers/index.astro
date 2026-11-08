@@ -27,7 +27,11 @@ const PERIOD_ORDER = ['baroque', 'classical', 'romantic', 'late-romantic', 'mode
             const count = works.filter((w) => w.data.composer === c.id).length;
             return (
               <a class="composer-card" href={`/composers/${c.id}/`}>
-                <span class="mono">{c.data.monogram}</span>
+                {c.data.portrait ? (
+                  <img class="thumb" src={c.data.portrait} alt={`${c.data.name}肖像`} loading="lazy" />
+                ) : (
+                  <span class="mono">{c.data.monogram}</span>
+                )}
                 <span class="c-name">{c.data.name}</span>
                 <span class="c-meta">{c.data.birth}–{c.data.death ?? ''} · 作品 {count} 部</span>
               </a>
@@ -65,6 +69,15 @@ const PERIOD_ORDER = ['baroque', 'classical', 'romantic', 'late-romantic', 'mode
     font-weight: 700;
     color: var(--gold);
     line-height: 1;
+  }
+  .thumb {
+    width: 56px;
+    height: 56px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
   }
   .c-name {
     font-family: var(--serif);

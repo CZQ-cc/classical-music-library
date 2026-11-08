@@ -1,0 +1,82 @@
+---
+/** 聆听指南索引:全部含指南的录音 */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import { recordingDetail, lineupOfRecording } from '../../utils/data';
+
+const recs = (await getCollection('recordings')).filter((r) => r.data.guide.length > 0);
+const items = await Promise.all(
+  recs.map(async (rec) => {
+    const { works } = await recordingDetail(rec);
+    return {
+      rec,
+      works,
+      lineup: await lineupOfRecording(rec),
+      movements: rec.data.guide.length,
+    };
+  }),
+);
+---
+
+<Base title="聆听指南 — 聆听经典" description="分乐章图解式聆听指南:调性圆盘、主题轮廓、力度标记与乐器声部。">
+  <div style="margin-top:52px">
+    <span class="eyebrow">Listening Guides</span>
+    <h1 style="font-size:clamp(28px,4vw,40px)">聆听指南</h1>
+    <p style="color:var(--ink-soft);max-width:640px;margin-top:12px">
+      图解式分乐章指南:一边听一边看。每份指南绑定具体录音版本——同一部作品,换一个版本,时间轴就不再适用。
+    </p>
+
+    <SectionTitle zh="全部指南" en="All Guides" />
+    <div class="gd-list">
+      {
+        items.map(({ rec, works, lineup, movements }) => (
+          <a class="gd-card" href={`/guides/${rec.id}/`}>
+            <span class="gd-count">{movements} 个乐章</span>
+            <div class="gd-title">{works.map((w) => w.data.title).join(' / ')}</div>
+            <div class="gd-sub">{lineup} · 录音 {rec.data.recording_year}</div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .gd-list {
+    display: grid;
+    gap: 18px;
+    max-width: 760px;
+  }
+  .gd-card {
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 24px 28px;
+    display: block;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.15s ease;
+    position: relative;
+  }
+  .gd-card:hover {
+    border-color: var(--gold);
+  }
+  .gd-count {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+  .gd-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    max-width: 520px;
+  }
+  .gd-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+</style>
